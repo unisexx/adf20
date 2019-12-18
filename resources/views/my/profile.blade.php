@@ -12,12 +12,13 @@
                 <p class="h5-responsive font-weight-bold mb-0">ข้อมูลส่วนตัว</p>
             </div>
             <div class="card-body">
-                <input type="email" id="exampleForm2" placeholder="Email to:" class="form-control rounded-0 mb-3">
-                <input type="text" id="exampleForm3" placeholder="Subject" class="form-control rounded-0 mb-4">
-                <textarea class="form-control" name="message" id="post_content"></textarea>
                 <div class="md-form md-outline">
                     <input type="text" id="f2" class="form-control">
-                    <label for="f2" class="">Basic example</label>
+                    <label for="f2" class="">ชื่อ</label>
+                </div>
+                <div class="md-form md-outline">
+                    <textarea type="text" id="f3" class="md-textarea form-control" rows="3"></textarea>
+                    <label for="f3" class="">แนะนำตัว</label>
                 </div>
             </div>
             <div class="card-footer white py-3">
