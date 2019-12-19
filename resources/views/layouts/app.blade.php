@@ -15,6 +15,7 @@
     </div>
 
     @include('include/_js')
+    @stack('js')
 </body>
 
 </html>
