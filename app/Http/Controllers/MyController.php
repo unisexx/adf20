@@ -22,12 +22,25 @@ class MyController extends Controller
     public function profile_save(ProfileRequest $request)
     {
         $requestData = $request->all();
+        // dd($requestData);
 
-        $image = Imgur::upload($request->imgUpload);
-        // Get imgur image link.
-        $requestData['imgur'] = $image->link(); //"https://i.imgur.com/XN9m1nW.jpg"
-        $requestData['user_id'] = Auth::user()->id;
-        Profile::create($requestData);
+        if ($request->hasFile('imgUpload')) {
+            $image = Imgur::upload($request->imgUpload);
+            // Get imgur image link.
+            $requestData['imgur'] = $image->link(); //"https://i.imgur.com/XN9m1nW.jpg"
+        }
+
+        // dd($requestData);
+        // dd($request->except('_token', 'user_id'));
+
+        Profile::updateOrCreate(
+            [
+                'user_id' => Auth::user()->id,
+            ],
+            [
+                $request->except('_token', 'user_id'),
+            ]
+        );
 
         return back();
     }

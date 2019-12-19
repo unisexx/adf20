@@ -37,6 +37,11 @@
                         <textarea name="introduce" type="text" id="f3" class="md-textarea form-control" rows="5">{{ @Auth::user()->profile->introduce }}</textarea>
                         <label for="f3" class="">แนะนำตัว</label>
                     </div>
+                    <!-- Material checked -->
+                    <div class="custom-control custom-switch">
+                        <input name="publish" type="checkbox" class="custom-control-input" id="customSwitch1" value="1" {{ @Auth::user()->profile->introduce == 1 ? 'checked' : ''}}>
+                        <label class="custom-control-label" for="customSwitch1">ปิด-เปิด การใช้งาน (ถ้าไม่ต้องการหาเพื่อนแล้วให้กดปิด)</label>
+                    </div>
 
                 </div>
                 
