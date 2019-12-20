@@ -26,6 +26,7 @@ class ProfileRequest extends FormRequest
         return [
             'display_name' => 'required',
             'introduce'    => 'required',
+            'province_id'  => 'required',
         ];
     }
 
@@ -34,6 +35,7 @@ class ProfileRequest extends FormRequest
         return [
             'display_name.required' => 'ชื่อ ห้ามเป็นค่าว่าง',
             'introduce.required'    => 'แนะนำตัว ห้ามเป็นค่าว่าง',
+            'province_id.required'  => 'จังหวัด ห้ามเป็นค่าว่าง',
         ];
     }
 

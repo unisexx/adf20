@@ -16,5 +16,6 @@ class Profile extends Model
         'introduce',
         'imgur',
         'publish',
+        'province_id',
     ];
 }

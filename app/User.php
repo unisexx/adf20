@@ -2,13 +2,16 @@
 
 namespace App;
 
+use Cog\Contracts\Ban\Bannable as BannableContract;
+use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements BannableContract
 {
     use \HighIdeas\UsersOnline\Traits\UsersOnlineTrait;
     use Notifiable;
+    use Bannable;
 
     /**
      * The attributes that are mass assignable.

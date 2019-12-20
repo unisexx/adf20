@@ -20,6 +20,7 @@ class CreateProfilesTable extends Migration
             $table->text('introduce')->nullable();
             $table->string('imgur')->nullable();
             $table->tinyInteger('publish')->nullable();
+            $table->tinyInteger('province_id')->nullable();
             $table->timestamps();
         });
     }
