@@ -24,3 +24,7 @@ Route::post('/my/profile_save', 'MyController@profile_save');
 
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+Route::get('admin_area', ['middleware' => 'admin', function () {
+    //
+}]);
