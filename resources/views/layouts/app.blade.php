@@ -3,6 +3,7 @@
 
 <head>
     @include('include/_meta')
+    @stack('css')
 </head>
 
 <body>
@@ -15,6 +16,7 @@
     </div>
 
     @include('include/_js')
+    @stack('js')
 </body>
 
 </html>
