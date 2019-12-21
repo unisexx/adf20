@@ -21,6 +21,7 @@ class CreateProfilesTable extends Migration
             $table->string('imgur')->nullable();
             $table->tinyInteger('publish')->nullable();
             $table->tinyInteger('province_id')->nullable();
+            $table->tinyInteger('sex_id')->nullable();
             $table->timestamps();
         });
     }

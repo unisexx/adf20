@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
 use App\Models\Province;
+use App\Models\Sex;
 use Auth;
 use Imgur;
 
@@ -18,7 +19,8 @@ class MyController extends Controller
     public function profile()
     {
         $provinces = Province::select('id', 'title')->orderBy('title', 'asc')->get();
-        return view('my.profile', compact('provinces'));
+        $sexes = Sex::select('id', 'name')->orderBy('id', 'asc')->get();
+        return view('my.profile', compact('provinces', 'sexes'));
     }
 
     public function profile_save(ProfileRequest $request)
@@ -45,6 +47,7 @@ class MyController extends Controller
                 'publish'      => $request->publish ?? '0',
                 'imgur'        => $imgur ?? $request->old_imgur,
                 'province_id'  => $request->province_id,
+                'sex_id'       => $request->sex_id,
             ]
         );
 

@@ -6,13 +6,12 @@
 
     <!-- Section: Block Content -->
     <section>
+        
         <form method="POST" action="{{ url('/my/profile_save') }}" accept-charset="UTF-8" enctype="multipart/form-data">
             {{ csrf_field() }}
 
-            <div class="card card-list">
-                <div class="card-header white d-flex justify-content-between align-items-center py-3">
-                    <p class="h5-responsive font-weight-bold mb-0">form</p>
-                </div>
+            <div class="card">
+                <p class="h4 text-center py-4">ข้อมูลส่วนตัว</p>
                 <div class="card-body">
 
                     <div class="md-form">
@@ -33,7 +32,16 @@
 
                     <div class="md-form md-outline">
                         <input name="display_name" type="text" id="f2" class="form-control" value="{{ @Auth::user()->profile->display_name }}">
-                        <label for="f2" class="">ชื่อ</label>
+                        <label for="f2" class="">ชื่อที่ใช้แสดงในเว็บ</label>
+                    </div>
+
+                    <div class="md-form md-outline">
+                        <select name="sex_id" class="browser-default custom-select">
+                            <option value="">เพศ</option>
+                            @foreach ($sexes as $sex)
+                                <option value="{{ $sex->id }}" {{ $sex->id == @Auth::user()->profile->sex_id ? 'selected' : '' }}>{{ $sex->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     
                     <div class="md-form md-outline">
@@ -56,12 +64,10 @@
                         <label class="custom-control-label" for="f4">ปิด-เปิด การใช้งาน (ถ้าไม่ต้องการหาเพื่อนแล้วให้กดปิด)</label>
                     </div>
 
-                </div>
-                
-                <div class="card-footer white py-3">
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary btn-md px-3 my-0 mr-0">บันทึก</button>
+                    <div class="text-center py-4 mt-3">
+                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล<i class="fa fa-paper-plane-o ml-2"></i></button>
                     </div>
+
                 </div>
             </div>
 

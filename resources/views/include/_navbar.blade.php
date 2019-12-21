@@ -3,7 +3,7 @@
 
     <div class="container">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ url('/') }}">
             <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="mdb logo">
         </a>
 
@@ -46,12 +46,17 @@
                         <a class="nav-link waves-effect" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                     @endif
-                    @else
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="{{ url('my/profile') }}">{{ Auth::user()->name }}</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
+
+                        <a class="dropdown-item" href="{{ url('my/profile') }}">ข้อมูลส่วนตัว</a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
