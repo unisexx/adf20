@@ -1,100 +1,69 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+welcome
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+<div class="text-center">
+          <a href="" class="btn btn-default btn-rounded mb-4 waves-effect waves-light" data-toggle="modal" data-target="#modalContactForm">Launch Modal Contact Form</a>
         </div>
-    </body>
-</html>
+
+<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <!--Modal: Contact form-->
+  <div class="modal-dialog cascading-modal" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Header-->
+      <div class="modal-header primary-color white-text">
+        <h4 class="title">
+          <i class="fa fa-pencil-alt"></i> Contact form</h4>
+        <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+
+        <!--Body-->
+      <div class="md-form">
+        <input type="text" id="Form-email1" class="form-control">
+        <label for="Form-email1">Your email</label>
+      </div>
+
+      <div class="md-form pb-3">
+        <input type="password" id="Form-pass1" class="form-control">
+        <label for="Form-pass1">Your password</label>
+        <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
+            Password?</a></p>
+      </div>
+
+      <div class="text-center mb-3">
+        <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+      </div>
+      <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:
+      </p>
+
+      <div class="row my-3 d-flex justify-content-center">
+        <!--Facebook-->
+        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i
+            class="fab fa-facebook-f blue-text text-center"></i></button>
+        <!--Twitter-->
+        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i
+            class="fab fa-twitter blue-text"></i></button>
+        <!--Google +-->
+        <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i
+            class="fab fa-google-plus-g blue-text"></i></button>
+      </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+  <!--/Modal: Contact form-->
+</div>
+
+@endsection

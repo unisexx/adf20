@@ -28,6 +28,7 @@ class ProfileRequest extends FormRequest
             'introduce'    => 'required',
             'province_id'  => 'required',
             'sex_id'       => 'required',
+            'birth_date'   => 'required',
         ];
     }
 
@@ -38,6 +39,7 @@ class ProfileRequest extends FormRequest
             'introduce.required'    => 'แนะนำตัว ห้ามเป็นค่าว่าง',
             'province_id.required'  => 'จังหวัด ห้ามเป็นค่าว่าง',
             'sex_id.required'       => 'เพศ ห้ามเป็นค่าว่าง',
+            'birth_date.required'   => 'วันเกิด ห้ามเป็นค่าว่าง',
         ];
     }
 

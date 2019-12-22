@@ -38,14 +38,16 @@
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 @guest
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link waves-effect" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
                         <a class="nav-link waves-effect" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
-                    @endif
+                    @endif --}}
+
+                    <a href="{{url('/redirect')}}" class="btn btn-sm btn-fb"><i class="fab fa-facebook-f pr-1"></i> เข้าสู่ระบบ</a>
                 @else
                     <li class="nav-item">
                         <a class="nav-link waves-effect" href="{{ url('my/profile') }}">{{ Auth::user()->name }}</a>

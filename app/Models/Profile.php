@@ -18,5 +18,7 @@ class Profile extends Model
         'publish',
         'province_id',
         'sex_id',
+        'birth_date',
+        'birth_date_submit',
     ];
 }
