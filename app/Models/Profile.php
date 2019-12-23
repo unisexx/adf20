@@ -17,5 +17,8 @@ class Profile extends Model
         'imgur',
         'publish',
         'province_id',
+        'sex_id',
+        'birth_date',
+        'birth_date_submit',
     ];
 }
