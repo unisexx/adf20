@@ -17,6 +17,7 @@
 
     @include('include/_js')
     @stack('js')
+    {!! sweetAlert() !!}
 </body>
 
 </html>

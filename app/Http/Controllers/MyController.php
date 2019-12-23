@@ -47,6 +47,7 @@ class MyController extends Controller
             ]
         );
 
+        set_notify('success', 'บันทึกข้อมูลสำเร็จ');
         return back();
     }
 }
