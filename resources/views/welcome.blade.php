@@ -2,68 +2,54 @@
 
 @section('content')
 
-welcome
+Landing
 
-<div class="text-center">
-          <a href="" class="btn btn-default btn-rounded mb-4 waves-effect waves-light" data-toggle="modal" data-target="#modalContactForm">Launch Modal Contact Form</a>
-        </div>
 
-<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <!--Modal: Contact form-->
-  <div class="modal-dialog cascading-modal" role="document">
+<!--Section: Author Box-->
+<section class="my-5">
 
-    <!--Content-->
-    <div class="modal-content">
-
-      <!--Header-->
-      <div class="modal-header primary-color white-text">
-        <h4 class="title">
-          <i class="fa fa-pencil-alt"></i> Contact form</h4>
-        <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
-          aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <!--Body-->
-      <div class="modal-body">
-
-        <!--Body-->
-      <div class="md-form">
-        <input type="text" id="Form-email1" class="form-control">
-        <label for="Form-email1">Your email</label>
-      </div>
-
-      <div class="md-form pb-3">
-        <input type="password" id="Form-pass1" class="form-control">
-        <label for="Form-pass1">Your password</label>
-        <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
-            Password?</a></p>
-      </div>
-
-      <div class="text-center mb-3">
-        <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
-      </div>
-      <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:
-      </p>
-
-      <div class="row my-3 d-flex justify-content-center">
-        <!--Facebook-->
-        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i
-            class="fab fa-facebook-f blue-text text-center"></i></button>
-        <!--Twitter-->
-        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i
-            class="fab fa-twitter blue-text"></i></button>
-        <!--Google +-->
-        <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i
-            class="fab fa-google-plus-g blue-text"></i></button>
-      </div>
-
-      </div>
-    </div>
-    <!--/.Content-->
+  <!-- Card header -->
+  <div class="card-header border-0 font-weight-bold d-flex justify-content-between">
+    <p class="mr-4 mb-0">About the author</p>
+    <ul class="list-unstyled list-inline mb-0">
+      <li class="list-inline-item"><a href="" class="text-default mr-3"><i class="fas fa-envelope mr-1"></i>Send
+          message</a></li>
+      <li class="list-inline-item"><a href="" class="text-default mr-3"><i class="fas fa-user mr-1"></i>See
+          profile</a></li>
+      <li class="list-inline-item"><a href="" class="text-default mr-3"><i class="fas fa-rss mr-1"></i>Follow</a></li>
+    </ul>
   </div>
-  <!--/Modal: Contact form-->
-</div>
+
+  <div class="media mt-4 px-1">
+    <img class="card-img-100 rounded-circle d-flex z-depth-1 mr-3" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg"
+      alt="Generic placeholder image">
+    <div class="media-body">
+      <h5 class="font-weight-bold mt-0">
+        <a class="text-default" href="">Danny Newman</a>
+      </h5>
+      <ul class="list-unstyled list-inline mb-2 pt-1">
+        <li class="list-inline-item">
+          <a class="grey-text mr-1"><i class="fab fa-lg fa-facebook"> </i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="grey-text mr-1"><i class="fab fa-lg fa-twitter"> </i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="grey-text mr-1"><i class="fab fa-lg fa-google-plus"> </i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="grey-text mr-1"><i class="fab fa-lg fa-linkedin"> </i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="grey-text mr-1"><i class="fab fa-lg fa-instagram"> </i></a>
+        </li>
+      </ul>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod consectetur accusamus velit nostrum et
+      magnam.
+    </div>
+  </div>
+
+</section>
+<!--Section: Author Box-->
 
 @endsection

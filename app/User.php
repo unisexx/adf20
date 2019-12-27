@@ -44,4 +44,25 @@ class User extends Authenticatable implements BannableContract
     {
         return $this->hasOne('App\Models\Profile');
     }
+
+    # Social Info
+    public function facebook()
+    {
+        return $this->hasOne('App\Models\SocialInfo')->where('provider', 'facebook');
+    }
+
+    public function instagram()
+    {
+        return $this->hasOne('App\Models\SocialInfo')->where('provider', 'instagram');
+    }
+
+    public function line()
+    {
+        return $this->hasOne('App\Models\SocialInfo')->where('provider', 'line');
+    }
+
+    public function twitter()
+    {
+        return $this->hasOne('App\Models\SocialInfo')->where('provider', 'twitter');
+    }
 }

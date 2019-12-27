@@ -10,10 +10,15 @@
         <form method="POST" action="{{ url('/my/profile_save') }}" accept-charset="UTF-8" enctype="multipart/form-data">
             {{ csrf_field() }}
 
-            <div class="card">
-                <p class="h4 text-center py-4">ข้อมูลส่วนตัว</p>
-                <div class="card-body">
 
+            <div class="card-cascade narrower card">
+
+                <div data-test="view" class="view view-cascade mdb-color lighten-3 card-header">
+                    <h5 class="mb-0 font-weight-bold text-center text-white">ตัวอย่างการแสดงผล</h5>
+                </div>
+
+                {{-- <p class="h4 text-center py-4">ข้อมูลส่วนตัว</p> --}}
+                <div class="card-body">
 
                     {{-- ตัวอย่าง --}}
                     <div class="container my-5">
@@ -26,6 +31,9 @@
 
                                         <!--Bacground color-->
                                         <div class="card-up indigo lighten-1">
+                                            @if(@Auth::user()->profile->imgur_cover)
+                                                <img src="{{ Imgur::size(@Auth::user()->profile->imgur_cover, 'l') }}" class="img-fluid">
+                                            @endif
                                         </div>
 
                                         <!--Avatar-->
@@ -36,11 +44,47 @@
                                         <div class="card-body">
                                             <!--Name-->
                                             <h4 class="card-title">{{ @Auth::user()->profile->display_name }}</h4>
-                                            <hr>
                                             <!--Quotation-->
                                             <p>
-                                                <i class="fas fa-quote-left"></i>
-                                                {{ @Auth::user()->profile->introduce }}</p>
+                                                {{-- <i class="fas fa-quote-left"></i> --}}
+                                                {{ @Auth::user()->profile->introduce }}
+                                            </p>
+                                            
+                                            @if(@Auth::user()->facebook->status)
+                                            <a class="fb-ic mr-3" role="button"><i
+                                                    class="fab fa-lg fa-facebook-f"></i></a>
+                                            @endif
+
+                                            @if(@Auth::user()->line->status)
+                                            <a class="whatsapp-ic mr-3" role="button"><i
+                                                    class="fab fa-lg fa-line"></i></a>
+                                            @endif
+
+                                            @if(@Auth::user()->instagram->status)
+                                            <a class="ins-ic mr-3" role="button"><i
+                                                    class="fab fa-lg fa-instagram pink-text"></i></a>
+                                            @endif
+
+                                            @if(@Auth::user()->twitter->status)
+                                            <a class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
+                                            @endif
+
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-4 text-center">
+                                                <p class="font-weight-bold mb-0">2400</p>
+                                                <p class="small text-uppercase mb-0">Sales</p>
+                                                </div>
+                                                <div class="col-sm-4 text-center border-left border-right">
+                                                <p class="font-weight-bold mb-0">15000</p>
+                                                <p class="small text-uppercase mb-0">Followers</p>
+                                                </div>
+                                                <div class="col-sm-4 text-center">
+                                                <p class="font-weight-bold mb-0">38</p>
+                                                <p class="small text-uppercase mb-0">Products</p>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
 
                                     </div>
@@ -54,7 +98,42 @@
                     {{-- ตัวอย่าง --}}
 
 
+                    <div class="md-form text-center">
+                        @if( @Auth::user()->profile->imgur_cover )
+                        <input type="hidden" name="old_imgur_cover" value="{{ @Auth::user()->profile->imgur_cover }}">
+                        @endif
+                        <div class="file-field">
+                            <div class="btn btn-primary btn-sm float-left">
+                                <span>เปลี่ยนภาพปก</span>
+                                <input type="file" name="imgUploadCover">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload your file">
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="text-center py-4 mt-3">
+                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล<i
+                                class="fa fa-paper-plane-o ml-2"></i></button>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="card-cascade narrower card mt-5">
+
+                <div data-test="view" class="view view-cascade mdb-color lighten-3 card-header">
+                    <h5 class="mb-0 font-weight-bold text-center text-white">ตั้งค่าข้อมูลส่วนตัว</h5>
+                </div>
+
+                <div class="card-body">
 
                     <div class="md-form text-center">
                         @if( @Auth::user()->profile->imgur )
@@ -112,6 +191,102 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <div class="text-center py-4 mt-3">
+                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล<i
+                                class="fa fa-paper-plane-o ml-2"></i></button>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="card-cascade narrower card mt-5">
+
+                <div data-test="view" class="view view-cascade mdb-color lighten-3 card-header">
+                    <h5 class="mb-0 font-weight-bold text-center text-white">ข้อมูล Social</h5>
+                </div>
+                <div class="card-body">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="height: 38px;">
+                                <input name="social_info[status][facebook]" class="form-check-input" type="checkbox"
+                                    value="1" id="facebook" {{ @Auth::user()->facebook->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="facebook">
+                            </div>
+                        </div>
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="Facebook"
+                            value="{{ @Auth::user()->facebook->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="facebook">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="height: 38px;">
+                                <input name="social_info[status][line]" class="form-check-input" type="checkbox"
+                                    value="1" id="line" {{ @Auth::user()->line->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="line">
+                            </div>
+                        </div>
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="Line"
+                            value="{{ @Auth::user()->line->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="line">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="height: 38px;">
+                                <input name="social_info[status][instagram]" class="form-check-input" type="checkbox"
+                                    value="1" id="instagram" {{ @Auth::user()->instagram->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="instagram">
+                            </div>
+                        </div>
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="Instagram"
+                            value="{{ @Auth::user()->instagram->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="instagram">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="height: 38px;">
+                                <input name="social_info[status][twitter]" class="form-check-input" type="checkbox"
+                                    value="1" id="twitter" {{ @Auth::user()->twitter->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="twitter">
+                            </div>
+                        </div>
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="twitter"
+                            value="{{ @Auth::user()->twitter->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="twitter">
+                    </div>
+
+
+
+                    <div class="text-center py-4 mt-3">
+                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล<i
+                                class="fa fa-paper-plane-o ml-2"></i></button>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="card-cascade narrower card mt-5">
+
+                <div data-test="view" class="view view-cascade mdb-color lighten-3 card-header">
+                    <h5 class="mb-0 font-weight-bold text-center text-white">สถานะการใช้งาน</h5>
+                </div>
+                <div class="card-body">
 
                     <!-- Material checked -->
                     <div class="custom-control custom-switch">

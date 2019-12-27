@@ -20,5 +20,6 @@ class Profile extends Model
         'sex_id',
         'birth_date',
         'birth_date_submit',
+        'imgur_cover',
     ];
 }
