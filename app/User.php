@@ -6,12 +6,15 @@ use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Rennokki\Befriended\Contracts\Following;
+use Rennokki\Befriended\Traits\Follow;
 
-class User extends Authenticatable implements BannableContract
+class User extends Authenticatable implements BannableContract, Following
 {
     use \HighIdeas\UsersOnline\Traits\UsersOnlineTrait;
     use Notifiable;
     use Bannable;
+    use Follow;
 
     /**
      * The attributes that are mass assignable.

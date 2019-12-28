@@ -3,7 +3,7 @@
 
     <div class="container">
 
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ url('/home') }}">
             <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="mdb logo">
         </a>
 
@@ -58,6 +58,8 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ url('my/profile') }}">ตั้งค่าข้อมูลส่วนตัว</a>
+                        <a class="dropdown-item" href="{{ url('my/following') }}">กำลังติดตาม ({{ Auth::user()->following()->count() }})</a>
+                        <a class="dropdown-item" href="{{ url('my/follower') }}">ผู้ติดตาม ({{ Auth::user()->followers()->count() }})</a>
 
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

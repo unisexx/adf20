@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container my-5">
+<div class="my-5">
 
     <!-- Section: Block Content -->
     <section>
@@ -38,7 +38,7 @@
 
                                         <!--Avatar-->
                                         <div class="avatar mx-auto white">
-                                            <img src="{{ @Auth::user()->profile->imgur }}" class="rounded-circle">
+                                            <img src="{{ @Auth::user()->profile->imgur ?? url('image/user-placeholder.png') }}" class="rounded-circle">
                                         </div>
 
                                         <div class="card-body">
@@ -71,17 +71,17 @@
 
                                             <hr>
                                             <div class="row">
-                                                <div class="col-sm-4 text-center">
-                                                <p class="font-weight-bold mb-0">2400</p>
-                                                <p class="small text-uppercase mb-0">Sales</p>
+                                                <div class="col-4 text-center">
+                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->followings()->get()->count() }}</p>
+                                                    <p class="small text-uppercase mb-0">ติดตาม</p>
                                                 </div>
-                                                <div class="col-sm-4 text-center border-left border-right">
-                                                <p class="font-weight-bold mb-0">15000</p>
-                                                <p class="small text-uppercase mb-0">Followers</p>
+                                                <div class="col-4 text-center border-left border-right">
+                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->followers()->get()->count() }}</p>
+                                                    <p class="small text-uppercase mb-0">ผู้ติดตาม</p>
                                                 </div>
-                                                <div class="col-sm-4 text-center">
-                                                <p class="font-weight-bold mb-0">38</p>
-                                                <p class="small text-uppercase mb-0">Products</p>
+                                                <div class="col-4 text-center">
+                                                    <p class="font-weight-bold mb-0">0</p>
+                                                    <p class="small text-uppercase mb-0">คะแนน</p>
                                                 </div>
                                             </div>
                                             
@@ -289,11 +289,11 @@
                 <div class="card-body">
 
                     <!-- Material checked -->
-                    <div class="custom-control custom-switch">
+                    <div class="custom-control custom-switch text-center">
                         <input name="publish" type="checkbox" class="custom-control-input" id="f4" value="1"
                             {{ @Auth::user()->profile->publish == 1 ? 'checked' : ''}}>
                         <label class="custom-control-label" for="f4">ปิด-เปิด การใช้งาน
-                            (ถ้าไม่ต้องการหาเพื่อนแล้วให้กดปิด)</label>
+                            (ถ้ายังไม่อยากให้คนอื่นเห็นเราให้กดปิด)<label>
                     </div>
 
                     <div class="text-center py-4 mt-3">

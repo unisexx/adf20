@@ -19,6 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// follow System
+Route::get('/follow/{id}', 'HomeController@follow');
+Route::get('/unfollow/{id}', 'HomeController@unfollow');
+
+// Vote System
+Route::get('/upvote/{id}', 'HomeController@upvote');
+Route::get('/downvote/{id}', 'HomeController@downvote');
+
 Route::get('/my/profile', 'MyController@profile');
 Route::post('/my/profile_save', 'MyController@profile_save');
 
