@@ -23,9 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/follow/{id}', 'HomeController@follow');
 Route::get('/unfollow/{id}', 'HomeController@unfollow');
 
-// Vote System
-Route::get('/upvote/{id}', 'HomeController@upvote');
-Route::get('/downvote/{id}', 'HomeController@downvote');
+// Like System
+Route::get('/like/{id}', 'HomeController@like');
+Route::get('/unlike/{id}', 'HomeController@unlike');
 
 Route::get('/my/profile', 'MyController@profile');
 Route::post('/my/profile_save', 'MyController@profile_save');

@@ -32,21 +32,7 @@
                         {{ @$user->profile->introduce }}
                     </p>
 
-                    @if(@$user->facebook->status)
-                    <a class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
-                    @endif
-
-                    @if(@$user->line->status)
-                    <a class="whatsapp-ic mr-3" role="button"><i class="fab fa-lg fa-line"></i></a>
-                    @endif
-
-                    @if(@$user->instagram->status)
-                    <a class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram pink-text"></i></a>
-                    @endif
-
-                    @if(@$user->twitter->status)
-                    <a class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
-                    @endif
+                    {!! icon_bar($user) !!}
 
                     <hr>
                     <div class="row">
@@ -59,14 +45,14 @@
                             <p class="small text-uppercase mb-0">ผู้ติดตาม</p>
                         </div>
                         <div class="col-4 text-center">
-                            <p class="font-weight-bold mb-0">0</p>
-                            <p class="small text-uppercase mb-0">เลิฟ</p>
+                            <p class="font-weight-bold mb-0">{{ $user->likers()->count() }}</p>
+                            <p class="small text-uppercase mb-0">ความรัก</p>
                         </div>
                     </div>
                     @if( @Auth::user()->id != $user->id )
                     <hr>
                     <div class="row">
-                        <div class="col-4 text-center">
+                        <div class="col-6 text-center">
                             <small>
                             @if(@Auth::user()->isFollowing($user))
                                 <a href="{{ url('unfollow/'.@$user->id) }}">เลิกติดตาม</a>
@@ -75,14 +61,13 @@
                             @endif
                             </small>
                         </div>
-                        <div class="col-4 text-center border-left border-right">
+                        <div class="col-6 text-center border-left">
                             <small>
-                                <a href="{{ url('upvote/'.@$user->id) }}">ให้คะแนน</a>
-                            </small>
-                        </div>
-                        <div class="col-4 text-center">
-                            <small>
-                                <a href="{{ url('downvote/'.@$user->id) }}">ลดคะแนน</a>
+                                @if(@Auth::user()->isLiking($user))
+                                    <a href="{{ url('unlike/'.@$user->id) }}">ไม่รักแล้ว</a>
+                                @else
+                                    <a href="{{ url('like/'.@$user->id) }}">รักเลย</a>
+                                @endif
                             </small>
                         </div>
                     </div>

@@ -7,14 +7,17 @@ use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Rennokki\Befriended\Contracts\Following;
+use Rennokki\Befriended\Contracts\Liking;
 use Rennokki\Befriended\Traits\Follow;
+use Rennokki\Befriended\Traits\Like;
 
-class User extends Authenticatable implements BannableContract, Following
+class User extends Authenticatable implements BannableContract, Following, Liking
 {
     use \HighIdeas\UsersOnline\Traits\UsersOnlineTrait;
     use Notifiable;
     use Bannable;
     use Follow;
+    use Like;
 
     /**
      * The attributes that are mass assignable.
@@ -67,5 +70,15 @@ class User extends Authenticatable implements BannableContract, Following
     public function twitter()
     {
         return $this->hasOne('App\Models\SocialInfo')->where('provider', 'twitter');
+    }
+
+    public function youtube()
+    {
+        return $this->hasOne('App\Models\SocialInfo')->where('provider', 'youtube');
+    }
+
+    public function tiktok()
+    {
+        return $this->hasOne('App\Models\SocialInfo')->where('provider', 'tiktok');
     }
 }

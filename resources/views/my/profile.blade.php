@@ -50,38 +50,21 @@
                                                 {{ @Auth::user()->profile->introduce }}
                                             </p>
                                             
-                                            @if(@Auth::user()->facebook->status)
-                                            <a class="fb-ic mr-3" role="button"><i
-                                                    class="fab fa-lg fa-facebook-f"></i></a>
-                                            @endif
-
-                                            @if(@Auth::user()->line->status)
-                                            <a class="whatsapp-ic mr-3" role="button"><i
-                                                    class="fab fa-lg fa-line"></i></a>
-                                            @endif
-
-                                            @if(@Auth::user()->instagram->status)
-                                            <a class="ins-ic mr-3" role="button"><i
-                                                    class="fab fa-lg fa-instagram pink-text"></i></a>
-                                            @endif
-
-                                            @if(@Auth::user()->twitter->status)
-                                            <a class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
-                                            @endif
+                                            {!! icon_bar(@Auth::user()) !!}
 
                                             <hr>
                                             <div class="row">
                                                 <div class="col-4 text-center">
-                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->followings()->get()->count() }}</p>
+                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->following()->count() }}</p>
                                                     <p class="small text-uppercase mb-0">ติดตาม</p>
                                                 </div>
                                                 <div class="col-4 text-center border-left border-right">
-                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->followers()->get()->count() }}</p>
+                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->followers()->count() }}</p>
                                                     <p class="small text-uppercase mb-0">ผู้ติดตาม</p>
                                                 </div>
                                                 <div class="col-4 text-center">
-                                                    <p class="font-weight-bold mb-0">0</p>
-                                                    <p class="small text-uppercase mb-0">คะแนน</p>
+                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->likers()->count() }}</p>
+                                                    <p class="small text-uppercase mb-0">ความรัก</p>
                                                 </div>
                                             </div>
                                             
@@ -214,18 +197,7 @@
                 </div>
                 <div class="card-body">
 
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text" style="height: 38px;">
-                                <input name="social_info[status][facebook]" class="form-check-input" type="checkbox"
-                                    value="1" id="facebook" {{ @Auth::user()->facebook->status ? 'checked' : '' }}>
-                                <label class="form-check-label" for="facebook">
-                            </div>
-                        </div>
-                        <input name="social_info[link][]" type="text" class="form-control" placeholder="Facebook"
-                            value="{{ @Auth::user()->facebook->link }}">
-                        <input name="social_info[provider][]" type="hidden" value="facebook">
-                    </div>
+                    <small id="helper" class="form-text text-muted mb-4">กรุณาตรวจสอบความถูกต้องของข้อมูล ถ้าใส่ข้อมูลไม่ถูกต้องเพื่อนจะติดตามเราไม่ได้แล้วจะมีผลกับคะแนนความรักด้วยน้า (เพื่อนไม่รักนั่นเอง)</small>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -235,9 +207,35 @@
                                 <label class="form-check-label" for="line">
                             </div>
                         </div>
-                        <input name="social_info[link][]" type="text" class="form-control" placeholder="Line"
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="LINE ID"
                             value="{{ @Auth::user()->line->link }}">
                         <input name="social_info[provider][]" type="hidden" value="line">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="height: 38px;">
+                                <input name="social_info[status][facebook]" class="form-check-input" type="checkbox"
+                                    value="1" id="facebook" {{ @Auth::user()->facebook->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="facebook">
+                            </div>
+                        </div>
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="FACEBOOK"
+                            value="{{ @Auth::user()->facebook->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="facebook">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="height: 38px;">
+                                <input name="social_info[status][youtube]" class="form-check-input" type="checkbox"
+                                    value="1" id="youtube" {{ @Auth::user()->youtube->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="youtube">
+                            </div>
+                        </div>
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="YOUTUBE"
+                            value="{{ @Auth::user()->youtube->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="youtube">
                     </div>
 
                     <div class="input-group mb-3">
@@ -248,12 +246,12 @@
                                 <label class="form-check-label" for="instagram">
                             </div>
                         </div>
-                        <input name="social_info[link][]" type="text" class="form-control" placeholder="Instagram"
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="INSTAGRAM"
                             value="{{ @Auth::user()->instagram->link }}">
                         <input name="social_info[provider][]" type="hidden" value="instagram">
                     </div>
 
-                    <div class="input-group">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text" style="height: 38px;">
                                 <input name="social_info[status][twitter]" class="form-check-input" type="checkbox"
@@ -261,11 +259,23 @@
                                 <label class="form-check-label" for="twitter">
                             </div>
                         </div>
-                        <input name="social_info[link][]" type="text" class="form-control" placeholder="twitter"
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="TWITTER"
                             value="{{ @Auth::user()->twitter->link }}">
                         <input name="social_info[provider][]" type="hidden" value="twitter">
                     </div>
 
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="height: 38px;">
+                                <input name="social_info[status][tiktok]" class="form-check-input" type="checkbox"
+                                    value="1" id="tiktok" {{ @Auth::user()->tiktok->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="tiktok">
+                            </div>
+                        </div>
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="TIKTOK"
+                            value="{{ @Auth::user()->tiktok->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="tiktok">
+                    </div>
 
 
                     <div class="text-center py-4 mt-3">

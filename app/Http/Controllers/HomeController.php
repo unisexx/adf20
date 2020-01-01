@@ -40,17 +40,15 @@ class HomeController extends Controller
         return back();
     }
 
-    public function upvote($id)
+    public function like($id)
     {
-        @Auth::user()->vote(1, User::class);
+        @Auth::user()->like(User::find($id));
         return back();
     }
 
-    public function downvote($id)
+    public function unlike($id)
     {
-        $targets = User::find($id);
-        @Auth::user()->downvote($targets);
-
+        @Auth::user()->unlike(User::find($id));
         return back();
     }
 }
