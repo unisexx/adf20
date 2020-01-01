@@ -197,7 +197,7 @@
                 </div>
                 <div class="card-body">
 
-                    <small id="helper" class="form-text text-muted mb-4">กรุณาตรวจสอบความถูกต้องของข้อมูล ถ้าใส่ข้อมูลไม่ถูกต้องเพื่อนจะติดตามเราไม่ได้แล้วจะมีผลกับคะแนนความรักด้วยน้า (เพื่อนไม่รักนั่นเอง)</small>
+                    <small id="helper" class="form-text text-muted mb-4">กรุณาตรวจสอบความถูกต้องของข้อมูล ถ้าใส่ข้อมูลไม่ถูกต้องเพื่อนจะแอดเราไม่ได้แล้วจะมีผลกับคะแนนความรักด้วยนะครับ</small>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

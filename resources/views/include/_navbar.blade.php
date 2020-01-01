@@ -47,8 +47,7 @@
                 </li>
                 @endif --}}
 
-                <a href="{{url('/redirect')}}" class="btn btn-sm btn-fb"><i class="fab fa-facebook-f pr-1"></i>
-                    เข้าสู่ระบบ</a>
+                <a href="{{url('/login')}}">เข้าสู่ระบบ</a>
                 @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
