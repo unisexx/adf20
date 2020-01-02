@@ -24,57 +24,7 @@
                     <div class="container my-5">
                         <div class="row">
                             <div class="col-md-8 col-lg-6 mx-auto">
-
-                                <!-- Section: Block Content -->
-                                <section>
-                                    <div class="card testimonial-card">
-
-                                        <!--Bacground color-->
-                                        <div class="card-up indigo lighten-1">
-                                            @if(@Auth::user()->profile->imgur_cover)
-                                                <img src="{{ Imgur::size(@Auth::user()->profile->imgur_cover, 'l') }}" class="img-fluid">
-                                            @endif
-                                        </div>
-
-                                        <!--Avatar-->
-                                        <div class="avatar mx-auto white">
-                                            <img src="{{ @Auth::user()->profile->imgur ?? url('image/user-placeholder.png') }}" class="rounded-circle">
-                                        </div>
-
-                                        <div class="card-body">
-                                            <!--Name-->
-                                            <h4 class="card-title">{{ @Auth::user()->profile->display_name }}</h4>
-                                            <!--Quotation-->
-                                            <p>
-                                                {{-- <i class="fas fa-quote-left"></i> --}}
-                                                {{ @Auth::user()->profile->introduce }}
-                                            </p>
-                                            
-                                            {!! icon_bar(@Auth::user()->socialInfo) !!}
-
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-4 text-center">
-                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->following()->count() }}</p>
-                                                    <p class="small text-uppercase mb-0">ติดตาม</p>
-                                                </div>
-                                                <div class="col-4 text-center border-left border-right">
-                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->followers()->count() }}</p>
-                                                    <p class="small text-uppercase mb-0">ผู้ติดตาม</p>
-                                                </div>
-                                                <div class="col-4 text-center">
-                                                    <p class="font-weight-bold mb-0">{{ @Auth::user()->likers()->count() }}</p>
-                                                    <p class="small text-uppercase mb-0">ความรัก</p>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-
-                                    </div>
-
-                                </section>
-                                <!-- Section: Block Content -->
-
+                                @include('include/user-card', ['user' => @Auth::user()])
                             </div>
                         </div>
                     </div>

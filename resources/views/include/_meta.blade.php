@@ -15,5 +15,6 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-<link href="{{ asset('MDB-Pro-4.9.0/MDB-Pro/css/bootstrap.min.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('MDB-Pro-4.9.0/MDB-Pro/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('MDB-Pro-4.9.0/MDB-Pro/css/mdb.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/template.css') }}">
