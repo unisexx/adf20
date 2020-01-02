@@ -14,13 +14,13 @@
                 <!--Bacground color-->
                 <div class="card-up indigo lighten-1">
                     @if(@$user->profile->imgur_cover)
-                    <img src="{{ @Imgur::size($user->profile->imgur_cover, 'l') }}" class="img-fluid">
+                    <img data-src="{{ @Imgur::size($user->profile->imgur_cover, 'l') }}" class="img-fluid lazyload">
                     @endif
                 </div>
 
                 <!--Avatar-->
                 <div class="avatar mx-auto white">
-                    <img src="{{ @$user->profile->imgur ?? url('image/user-placeholder.png') }}" class="rounded-circle">
+                    <img data-src="{{ @$user->profile->imgur ?? url('image/user-placeholder.png') }}" class="rounded-circle lazyload">
                 </div>
 
                 <div class="card-body">

@@ -59,7 +59,11 @@
                         <a class="dropdown-item" href="{{ url('my/profile') }}">ตั้งค่าข้อมูลส่วนตัว</a>
                         <a class="dropdown-item" href="{{ url('my/following') }}">กำลังติดตาม ({{ Auth::user()->following()->count() }})</a>
                         <a class="dropdown-item" href="{{ url('my/follower') }}">ผู้ติดตาม ({{ Auth::user()->followers()->count() }})</a>
-
+                        @if(Auth::user()->is_admin == 1)
+                            <hr>
+                            <a class="dropdown-item" href="{{ url('zadmin/user') }}">จัดการสมาชิก</a>
+                        @endif
+                        <hr>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
