@@ -35,6 +35,9 @@ Route::get('/unlike/{id}', 'HomeController@unlike');
 Route::get('/my/profile', 'MyController@profile')->middleware('logs-out-banned-user');
 Route::post('/my/profile_save', 'MyController@profile_save');
 
+Route::get('/my/following', 'MyController@following');
+Route::get('/my/follower', 'MyController@follower');
+
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 

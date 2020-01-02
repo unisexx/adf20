@@ -78,4 +78,20 @@ class MyController extends Controller
         set_notify('success', 'บันทึกข้อมูลสำเร็จ');
         return back();
     }
+
+    public function following()
+    {
+        $users = Auth::user()->following();
+        $users = $users->orderBy('id', 'desc')->with('socialInfo')->paginate(12);
+
+        return view('my.following', compact('users'));
+    }
+
+    public function follower()
+    {
+        $users = Auth::user()->followers();
+        $users = $users->orderBy('id', 'desc')->with('socialInfo')->paginate(12);
+
+        return view('my.following', compact('users'));
+    }
 }

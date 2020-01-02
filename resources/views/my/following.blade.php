@@ -6,7 +6,7 @@
     <div class="d-flex flex-wrap">
 
         @foreach($users as $user)
-        <div class="m-3 flex-fill" style="width:300px;">
+        <div class="m-3 flex-fill">
 
             <!-- Section: Block Content -->
             <div class="card testimonial-card">

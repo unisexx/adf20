@@ -50,7 +50,7 @@
                                                 {{ @Auth::user()->profile->introduce }}
                                             </p>
                                             
-                                            {!! icon_bar(@Auth::user()) !!}
+                                            {!! icon_bar(@Auth::user()->socialInfo) !!}
 
                                             <hr>
                                             <div class="row">
@@ -202,19 +202,6 @@
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text" style="height: 38px;">
-                                <input name="social_info[status][line]" class="form-check-input" type="checkbox"
-                                    value="1" id="line" {{ @Auth::user()->line->status ? 'checked' : '' }}>
-                                <label class="form-check-label" for="line">
-                            </div>
-                        </div>
-                        <input name="social_info[link][]" type="text" class="form-control" placeholder="LINE ID"
-                            value="{{ @Auth::user()->line->link }}">
-                        <input name="social_info[provider][]" type="hidden" value="line">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text" style="height: 38px;">
                                 <input name="social_info[status][facebook]" class="form-check-input" type="checkbox"
                                     value="1" id="facebook" {{ @Auth::user()->facebook->status ? 'checked' : '' }}>
                                 <label class="form-check-label" for="facebook">
@@ -228,14 +215,27 @@
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text" style="height: 38px;">
-                                <input name="social_info[status][youtube]" class="form-check-input" type="checkbox"
-                                    value="1" id="youtube" {{ @Auth::user()->youtube->status ? 'checked' : '' }}>
-                                <label class="form-check-label" for="youtube">
+                                <input name="social_info[status][twitter]" class="form-check-input" type="checkbox"
+                                    value="1" id="twitter" {{ @Auth::user()->twitter->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="twitter">
                             </div>
                         </div>
-                        <input name="social_info[link][]" type="text" class="form-control" placeholder="YOUTUBE"
-                            value="{{ @Auth::user()->youtube->link }}">
-                        <input name="social_info[provider][]" type="hidden" value="youtube">
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="TWITTER"
+                            value="{{ @Auth::user()->twitter->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="twitter">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="height: 38px;">
+                                <input name="social_info[status][line]" class="form-check-input" type="checkbox"
+                                    value="1" id="line" {{ @Auth::user()->line->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="line">
+                            </div>
+                        </div>
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="LINE ID"
+                            value="{{ @Auth::user()->line->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="line">
                     </div>
 
                     <div class="input-group mb-3">
@@ -254,14 +254,14 @@
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text" style="height: 38px;">
-                                <input name="social_info[status][twitter]" class="form-check-input" type="checkbox"
-                                    value="1" id="twitter" {{ @Auth::user()->twitter->status ? 'checked' : '' }}>
-                                <label class="form-check-label" for="twitter">
+                                <input name="social_info[status][youtube]" class="form-check-input" type="checkbox"
+                                    value="1" id="youtube" {{ @Auth::user()->youtube->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="youtube">
                             </div>
                         </div>
-                        <input name="social_info[link][]" type="text" class="form-control" placeholder="TWITTER"
-                            value="{{ @Auth::user()->twitter->link }}">
-                        <input name="social_info[provider][]" type="hidden" value="twitter">
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="YOUTUBE"
+                            value="{{ @Auth::user()->youtube->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="youtube">
                     </div>
 
                     <div class="input-group">

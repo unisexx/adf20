@@ -52,6 +52,11 @@ class User extends Authenticatable implements BannableContract, Following, Likin
     }
 
     # Social Info
+    public function socialInfo()
+    {
+        return $this->hasMany('App\Models\SocialInfo')->orderBy('id', 'asc');
+    }
+
     public function facebook()
     {
         return $this->hasOne('App\Models\SocialInfo')->where('provider', 'facebook');
