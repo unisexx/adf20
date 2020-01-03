@@ -62,6 +62,7 @@
                         @if(Auth::user()->is_admin == 1)
                             <hr>
                             <a class="dropdown-item" href="{{ url('zadmin/user') }}">จัดการสมาชิก</a>
+                            <a class="dropdown-item" href="{{ url('zadmin/banner') }}">จัดการแบนเนอร์</a>
                         @endif
                         <hr>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -45,6 +45,7 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 Route::get('/zadmin/user/ban/{id}', 'Admin\\UserController@ban')->middleware('is_admin');
 Route::get('/zadmin/user/unban/{id}', 'Admin\\UserController@unban')->middleware('is_admin');
 Route::resource('/zadmin/user', 'Admin\\UserController')->middleware('is_admin');
+Route::resource('/zadmin/banner', 'Admin\\BannerController')->middleware('is_admin');
 
 // Route::namespace ('Admin')->prefix('zadmin')->middleware('is_admin')->group(function () {
 //     // namespace ('Admin') = Controller ที่อยู่ใน Folder Admin

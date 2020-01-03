@@ -26,7 +26,6 @@ class MyController extends Controller
 
     public function profile_save(ProfileRequest $request)
     {
-
         # Profile Imgur
         if ($request->hasFile('imgUpload')) {
             $image = Imgur::upload($request->imgUpload);

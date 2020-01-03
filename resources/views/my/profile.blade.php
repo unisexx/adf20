@@ -47,8 +47,7 @@
                     </div>
 
                     <div class="text-center py-4 mt-3">
-                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล<i
-                                class="fa fa-paper-plane-o ml-2"></i></button>
+                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
                     </div>
 
                 </div>
@@ -126,8 +125,7 @@
                     </div>
 
                     <div class="text-center py-4 mt-3">
-                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล<i
-                                class="fa fa-paper-plane-o ml-2"></i></button>
+                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
                     </div>
 
 
@@ -229,8 +227,7 @@
 
 
                     <div class="text-center py-4 mt-3">
-                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล<i
-                                class="fa fa-paper-plane-o ml-2"></i></button>
+                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
                     </div>
 
                 </div>
@@ -257,8 +254,7 @@
                     </div>
 
                     <div class="text-center py-4 mt-3">
-                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล<i
-                                class="fa fa-paper-plane-o ml-2"></i></button>
+                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
                     </div>
 
                 </div>
