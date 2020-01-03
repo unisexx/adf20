@@ -52,3 +52,6 @@ Route::resource('/zadmin/banner', 'Admin\\BannerController')->middleware('is_adm
 //     // prefix('zadmin') = url ที่เริ่มด้วย zadmin/...
 //     Route::resource('user', 'UserController');
 // });
+
+// ajax
+Route::any('ajaxSwitchStatus', 'AjaxController@ajaxSwitchStatus');

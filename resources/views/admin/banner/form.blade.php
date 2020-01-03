@@ -19,13 +19,13 @@
 
                 <div class="card-body">
 
-                    <div class="md-form text-center">
+                    <div class="md-form">
                         @if( @$rs->imgur )
-                        <img class="img-fluid" src="{{ Imgur::size($rs->imgur, 'b') }}">
+                        <img class="img-fluid m-2" src="{{ Imgur::size($rs->imgur, 'b') }}">
                         <input type="hidden" name="old_imgur" value="{{ $rs->imgur }}">
                         @endif
                         <div class="file-field">
-                            <div class="btn btn-primary waves-effect float-left">
+                            <div class="btn btn-sm btn-primary waves-effect float-left">
                                 <span>อัพโหลดภาพแบนเนอร์<i class="fas fa-cloud-upload-alt ml-2" aria-hidden="true"></i></span>
                                 <input type="file" name="imgUpload">
                             </div>
@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="custom-control custom-switch">
-                        <input name="publish" type="checkbox" class="custom-control-input" id="status" value="1"
+                        <input name="status" type="checkbox" class="custom-control-input" id="status" value="1"
                             {{ @$rs->status == 1 ? 'checked' : ''}}>
                         <label class="custom-control-label" for="status">สถานะ ปิด-เปิด<label>
                     </div>

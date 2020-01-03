@@ -2,7 +2,7 @@
 <div class="card testimonial-card">
 
     <!--Bacground color-->
-    <div class="card-up indigo lighten-1">
+    <div class="card-up blue-gradient">
         @if(@$user->profile->imgur_cover)
         <img data-src="{{ @Imgur::size($user->profile->imgur_cover, 'l') }}" class="img-fluid lazyload">
         @endif
@@ -36,7 +36,7 @@
             </div>
             <div class="col-4 text-center">
                 <p class="font-weight-bold mb-0">{{ $user->likers()->count() }}</p>
-                <p class="small text-uppercase mb-0">ความรัก</p>
+                <p class="small text-uppercase mb-0">รักเลย</p>
             </div>
         </div>
         @if( @Auth::user()->id != $user->id )

@@ -9,6 +9,7 @@
 <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
     <thead>
         <tr>
+            <th class="th-sm">Status</th>
             <th class="th-sm">Image</th>
             <th class="th-sm">Url</th>
             <th class="th-sm">SDate</th>
@@ -19,7 +20,13 @@
     <tbody>
         @foreach($banners as $banner)
         <tr>
-            <td><img src="{{ $banner->imgur }}" width="200"></td>
+            <td>
+                <div class="custom-control custom-switch text-center">
+                    <input name="status" type="checkbox" class="custom-control-input switch_status" id="status_{{ @$banner->id }}" value="1" {{ @$banner->status == 1 ? 'checked' : ''}} data-tb="banners" data-id="{{ @$banner->id }}">
+                    <label class="custom-control-label" for="status_{{ @$banner->id }}"><label>
+                </div>
+            </td>
+            <td><img src="{{ Imgur::size($banner->imgur, 's') }}"></td>
             <td>{{ $banner->url }}</td>
             <td>{{ $banner->start_date }}</td>
             <td>{{ $banner->end_date }}</td>
@@ -28,7 +35,7 @@
                 <form method="POST" action="{{ url('zadmin/banner/' . $banner->id) }}" accept-charset="UTF-8" style="display:inline">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-danger btn-sm">ลบ</button>
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="confirmDelete()">ลบ</button>
                 </form>
             </td>
         </tr>
@@ -36,6 +43,7 @@
     </tbody>
     <tfoot>
         <tr>
+            <th>Status</th>
             <th>Image</th>
             <th>Url</th>
             <th>SDate</th>
@@ -56,9 +64,18 @@
 <!-- DataTables JS -->
 <script type="text/javascript" src="{{ asset('MDB-Pro-4.9.0/MDB-Pro/js/addons/datatables.min.js') }}"></script>
 <script>
-    $(document).ready(function () {
-        $('#dtBasicExample').DataTable();
-    });
+$(document).ready(function () {
+    $('#dtBasicExample').DataTable();
 
+    // ajax เปิด-ปิด สถานะ
+    urlPath = window.location.protocol + "//" + window.location.host + "/";
+    $(document).on('change', ".switch_status", function () {
+        $.ajax({
+            url: urlPath+"ajaxSwitchStatus",
+            data:{ table : $(this).data('tb'), id : $(this).data('id'), status : $(this).prop('checked') },
+            dataType: "json",
+        });
+    });
+});
 </script>
 @endpush

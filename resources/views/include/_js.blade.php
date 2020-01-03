@@ -12,5 +12,22 @@
 <script type="text/javascript" src="{{ asset('js/lazysizes.min.js') }}" async=""></script>
 <!-- Your custom scripts (optional) -->
 <script type="text/javascript">
-
+function confirmDelete() {
+    event.preventDefault(); // prevent form submit
+    var form = event.target.form; // storing the form
+    Swal.fire({
+    title: 'ยืนยันการลบข้อมูล?',
+    text: "หลังจากที่ลบไปแล้วจะไม่สามารถดึงข้อมูลนี้กลับมาได้อีก!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'ลบเลย',
+    cancelButtonText: 'ยกเลิก'
+    }).then((result) => {
+        if (result.value) {
+            form.submit();
+        }
+    });
+}
 </script>
