@@ -12,7 +12,7 @@
  */
 
 Route::get('get-ip-details', function () {
-	$ip = '66.102.0.0';
+    $ip = '66.102.0.0';
     $data = \Location::get($ip);
     dd($data);
 });
@@ -61,3 +61,12 @@ Route::resource('/zadmin/banner', 'Admin\\BannerController')->middleware('is_adm
 
 // ajax
 Route::any('ajaxSwitchStatus', 'AjaxController@ajaxSwitchStatus');
+
+// Private Message
+Route::group(['prefix' => 'messages'], function () {
+    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+});
