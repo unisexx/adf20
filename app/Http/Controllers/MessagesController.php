@@ -21,9 +21,9 @@ class MessagesController extends Controller
     public function index()
     {
         // All threads, ignore deleted/archived participants
-        $threads = Thread::getAllLatest()->get();
+        // $threads = Thread::getAllLatest()->get();
         // All threads that user is participating in
-        // $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
+        $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
         // All threads that user is participating in, with new messages
         // $threads = Thread::forUserWithNewMessages(Auth::id())->latest('updated_at')->get();
         return view('messenger.index', compact('threads'));
@@ -46,9 +46,12 @@ class MessagesController extends Controller
         // $users = User::whereNotIn('id', $thread->participantsUserIds())->get();
         // don't show the current user in list
         $userId = Auth::id();
-        $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
+        $user_recipient_id = User::whereIn('id', $thread->participantsUserIds($userId))->where('id', '!=', $userId)->pluck('id')->first();
+        $user = User::find($user_recipient_id);
         $thread->markAsRead($userId);
-        return view('messenger.show', compact('thread', 'users'));
+
+        // dd($user);
+        return view('messenger.show', compact('thread', 'user'));
     }
     /**
      * Creates a new message thread.
@@ -122,5 +125,11 @@ class MessagesController extends Controller
             $thread->addParticipant(Request::input('recipients'));
         }
         return redirect()->route('messages.show', $id);
+    }
+
+    public function to($id)
+    {
+        $user = User::find($id);
+        return view('messenger.to', compact('user'));
     }
 }

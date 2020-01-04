@@ -18,21 +18,6 @@
 
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
-                {{-- <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/"
-                        target="_blank">jQuery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/angular/"
-                        target="_blank">Angular</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/react/"
-                        target="_blank">React</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/vue/" target="_blank">Vue</a>
-                </li> --}}
             </ul>
 
             <!-- Right -->
@@ -42,9 +27,12 @@
                     <a href="{{url('/login')}}">เข้าสู่ระบบ</a>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="{{ url('message') }}">
+                    <a class="nav-link waves-effect" href="{{ url('messages') }}">
                         <i class="far fa-envelope"></i>
-                        <span class='badge badge-pill badge-danger unread-count'>30</span>
+                        @php $count = Auth::user()->newThreadsCount(); @endphp
+                        @if($count > 0)
+                            <span class='badge badge-pill badge-danger unread-count'>{{ $count }}</span>
+                        @endif
                     </a>
                 </li>
                 <li class="nav-item dropdown">

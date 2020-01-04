@@ -69,4 +69,6 @@ Route::group(['prefix' => 'messages'], function () {
     Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
     Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+
+    Route::get('to/{id}', 'MessagesController@to');
 });

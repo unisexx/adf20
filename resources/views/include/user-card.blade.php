@@ -42,7 +42,7 @@
         @if( @Auth::user()->id != $user->id )
         <hr>
         <div class="row">
-            <div class="col-6 text-center">
+            <div class="col-4 text-center">
                 <small>
                 @if(@Auth::user()->isFollowing($user))
                     <a href="{{ url('unfollow/'.@$user->id) }}">เลิกติดตาม</a>
@@ -51,13 +51,18 @@
                 @endif
                 </small>
             </div>
-            <div class="col-6 text-center border-left">
+            <div class="col-4 text-center border-left border-right">
                 <small>
                     @if(@Auth::user()->isLiking($user))
                         <a href="{{ url('unlike/'.@$user->id) }}">ไม่รักแล้ว</a>
                     @else
                         <a href="{{ url('like/'.@$user->id) }}">รักเลย</a>
                     @endif
+                </small>
+            </div>
+            <div class="col-4 text-center">
+                <small>
+                    <a href="{{ url('messages/to/'.@$user->id) }}">ส่งข้อความ</a>
                 </small>
             </div>
         </div>
