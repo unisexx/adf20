@@ -1,3 +1,10 @@
 .w-300px{
     width:300px !important;
 }
+
+.unread-count {
+    font-size: 10px;
+    padding: 2px 5px;
+    vertical-align: top;
+    margin-left: -10px;
+}

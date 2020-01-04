@@ -38,17 +38,15 @@
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 @guest
-                {{-- <li class="nav-item">
-                        <a class="nav-link waves-effect" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-                @endif --}}
 
-                <a href="{{url('/login')}}">เข้าสู่ระบบ</a>
+                    <a href="{{url('/login')}}">เข้าสู่ระบบ</a>
                 @else
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{{ url('message') }}">
+                        <i class="far fa-envelope"></i>
+                        <span class='badge badge-pill badge-danger unread-count'>30</span>
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
