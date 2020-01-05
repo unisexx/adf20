@@ -2,7 +2,7 @@
 <div class="card testimonial-card">
 
     <!--Bacground color-->
-    <div class="card-up blue-gradient">
+    <div class="card-up green accent-3">
         @if(@$user->profile->imgur_cover)
         <img data-src="{{ @Imgur::size($user->profile->imgur_cover, 'l') }}" class="img-fluid lazyload">
         @endif

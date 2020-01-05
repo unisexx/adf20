@@ -13,7 +13,7 @@
 
             <div class="card-cascade narrower card">
 
-                <div data-test="view" class="view view-cascade mdb-color lighten-3 card-header">
+                <div data-test="view" class="view view-cascade mdb-color darken-3 card-header">
                     <h5 class="mb-0 font-weight-bold text-center text-white">ตัวอย่างการแสดงผล</h5>
                 </div>
 
@@ -37,7 +37,7 @@
                         @endif
                         <div class="file-field">
                             <div class="btn btn-primary btn-sm float-left">
-                                <span>เปลี่ยนภาพปก</span>
+                                <span>อัพโหลดภาพปก</span>
                                 <input type="file" name="imgUploadCover">
                             </div>
                             <div class="file-path-wrapper">
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="text-center py-4 mt-3">
-                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
+                        <button class="btn btn-primary btn-lg" type="submit">บันทึกข้อมูล</button>
                     </div>
 
                 </div>
@@ -61,7 +61,7 @@
 
             <div class="card-cascade narrower card mt-5">
 
-                <div data-test="view" class="view view-cascade mdb-color lighten-3 card-header">
+                <div data-test="view" class="view view-cascade mdb-color darken-3 card-header">
                     <h5 class="mb-0 font-weight-bold text-center text-white">ตั้งค่าข้อมูลส่วนตัว</h5>
                 </div>
 
@@ -125,7 +125,7 @@
                     </div>
 
                     <div class="text-center py-4 mt-3">
-                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
+                        <button class="btn btn-primary btn-lg" type="submit">บันทึกข้อมูล</button>
                     </div>
 
 
@@ -140,7 +140,7 @@
 
             <div class="card-cascade narrower card mt-5">
 
-                <div data-test="view" class="view view-cascade mdb-color lighten-3 card-header">
+                <div data-test="view" class="view view-cascade mdb-color darken-3 card-header">
                     <h5 class="mb-0 font-weight-bold text-center text-white">ข้อมูล Social</h5>
                 </div>
                 <div class="card-body">
@@ -227,7 +227,7 @@
 
 
                     <div class="text-center py-4 mt-3">
-                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
+                        <button class="btn btn-primary btn-lg" type="submit">บันทึกข้อมูล</button>
                     </div>
 
                 </div>
@@ -240,7 +240,7 @@
 
             <div class="card-cascade narrower card mt-5">
 
-                <div data-test="view" class="view view-cascade mdb-color lighten-3 card-header">
+                <div data-test="view" class="view view-cascade mdb-color darken-3 card-header">
                     <h5 class="mb-0 font-weight-bold text-center text-white">สถานะการใช้งาน</h5>
                 </div>
                 <div class="card-body">
@@ -254,7 +254,7 @@
                     </div>
 
                     <div class="text-center py-4 mt-3">
-                        <button class="btn btn-primary" type="submit">บันทึกข้อมูล</button>
+                        <button class="btn btn-primary btn-lg" type="submit">บันทึกข้อมูล</button>
                     </div>
 
                 </div>

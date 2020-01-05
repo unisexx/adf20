@@ -8,3 +8,34 @@
     vertical-align: top;
     margin-left: -10px;
 }
+
+.st-divider {
+    color: #333;
+    display: block;
+    min-height: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+}
+.st-divider:before {
+    background: #e6e8f1;
+    content: ' ';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 12px;
+    width: 100%;
+    z-index: 9;
+}
+.st-divider > span {
+    color: #d8d8d8;
+    background: #fff;
+    font-size: 12px;
+    padding: 4px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+a.btn-link:hover {
+    text-decoration: none;
+}

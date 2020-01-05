@@ -24,7 +24,7 @@
             <ul class="navbar-nav nav-flex-icons">
                 @guest
 
-                    <a href="{{url('/login')}}">เข้าสู่ระบบ</a>
+                    <a href="{{url('/login')}}" class="text-dark">เข้าสู่ระบบ</a>
                 @else
                 <li class="nav-item">
                     <a class="nav-link waves-effect" href="{{ url('messages') }}">
