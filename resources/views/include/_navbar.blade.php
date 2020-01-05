@@ -4,7 +4,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{ url('/home') }}">
-            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="mdb logo">
+            <img src="{{ asset('/image/addfriend-logo.png') }}" height="30" alt="addfriend">
         </a>
 
         <!-- Collapse button -->

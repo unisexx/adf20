@@ -96,3 +96,29 @@
 </div>
 
 @endsection
+
+@push('js')
+<script>
+$(document).ready(function(){
+    Swal.fire({
+        customClass: {
+            confirmButton: 'btn btn-light-green waves-effect',
+            cancelButton: 'btn btn-outline-success waves-effect ',
+        },
+        title: 'คำเตือน',
+        text: "ข้อมูลในเว็บไซต์ต่อไปนี้ อาจมีเนื้อหาบางส่วนที่ไม่เหมาะสมแก่ เด็ก และ เยาวชน ที่อายุต่ำกว่า 18 ปี",
+        icon: 'warning',
+        reverseButtons: true,
+        focusConfirm: false,
+        allowOutsideClick: false,
+        showCancelButton: true,
+        cancelButtonText: 'ข้าพเจ้าอายุ 18+ ปี',
+        confirmButtonText: 'ข้าพเจ้าอายุไม่ถึง 18 ปี',
+        }).then((result) => {
+        if (result.value) {
+            window.location = "/";
+        }
+    })
+});
+</script>
+@endpush
