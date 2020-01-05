@@ -26,13 +26,13 @@
             {{ @$message->body }}
         </p>
     </div>
-    <img src="{{ @$message->user->profile->imgur ?? url('image/user-placeholder.png') }}" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1 align-self-start" width="120">
+    <img src="{{ @$message->user->profile->imgur ?? url('image/user-placeholder.png') }}" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1 align-self-start" width="60">
 </li>
 
 @else
 
 <li class="d-flex justify-content-between mb-4">
-    <img src="{{ @$message->user->profile->imgur ?? url('image/user-placeholder.png') }}" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1 align-self-start" width="120">
+    <img src="{{ @$message->user->profile->imgur ?? url('image/user-placeholder.png') }}" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1 align-self-start" width="60">
     <div class="chat-body white p-3 ml-2 z-depth-1 w-100">
         <div class="header">
             <strong class="primary-font">{{ @$message->user->profile->display_name }}</strong>

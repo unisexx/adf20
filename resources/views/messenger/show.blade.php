@@ -9,7 +9,7 @@
         <div class="row px-lg-2 px-2">
 
             <!-- Grid column -->
-            <div class="col-md-6 col-xl-4 px-0">
+            <div class="col-md-6 col-xl-4 px-0 mb-5">
 
                 <h6 class="font-weight-bold mb-3 text-center text-lg-left">ส่งข้อความถึง</h6>
                 <div class="px-3 pt-3 pb-0">

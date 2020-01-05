@@ -1,11 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-@include('messenger.partials.flash')
 
-<ul class="list-unstyled friend-list">
-    @each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')
-</ul>
+<div class="row">
+    <div class="col-md-3">
+        <div class="list-group">
+            <a href="#!" class="list-group-item list-group-item-action">ข้อความรับเข้า</a>
+            <a href="#!" class="list-group-item list-group-item-action">ข้อความส่งออก</a>
+        </div>
+    </div>
+    <div class="col-md-9">
+        @include('messenger.partials.flash')
+        <ul class="list-unstyled friend-list">
+            @each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')
+        </ul>
+    </div>
+</div>
+
 @stop
 
 @push('js')
