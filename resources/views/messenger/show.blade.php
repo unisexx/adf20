@@ -13,7 +13,7 @@
 
                 <h6 class="font-weight-bold mb-3 text-center text-lg-left">ส่งข้อความถึง</h6>
                 <div class="px-3 pt-3 pb-0">
-                    @include('include/user-card', ['user' => $user])
+                    @include('include/__user-card', ['user' => $user])
                 </div>
 
             </div>

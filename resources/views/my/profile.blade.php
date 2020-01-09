@@ -24,7 +24,7 @@
                     <div class="container my-5">
                         <div class="row">
                             <div class="col-md-8 col-lg-6 mx-auto">
-                                @include('include/user-card', ['user' => @Auth::user()])
+                                @include('include/__user-card', ['user' => @Auth::user()])
                             </div>
                         </div>
                     </div>
