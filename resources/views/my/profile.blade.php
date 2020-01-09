@@ -260,8 +260,6 @@
                 </div>
             </div>
 
-            {!! app('captcha')->render(); !!}
-
         </form>
     </section>
     <!-- Section: Block Content -->

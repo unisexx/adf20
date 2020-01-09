@@ -29,7 +29,6 @@ class ProfileRequest extends FormRequest
             'province_id'  => 'required',
             'sex_id'       => 'required',
             'birth_date'   => 'required',
-            // 'g-recaptcha-response' => 'required|captcha',
         ];
     }
 
