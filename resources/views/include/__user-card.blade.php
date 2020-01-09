@@ -2,7 +2,7 @@
 <div class="card testimonial-card">
 
     <!--Bacground color-->
-    <div class="card-up green accent-3">
+    <div class="card-up green accent-4">
         @if(@$user->profile->imgur_cover)
         <img data-src="{{ @Imgur::size($user->profile->imgur_cover, 'l') }}" class="img-fluid lazyload">
         @endif
@@ -17,7 +17,7 @@
         <!--Name-->
         <h4 class="card-title">{{ @$user->profile->display_name }}</h4>
         <!--Quotation-->
-        <p>
+        <p class="introduce scrollbar-style">
             {{-- <i class="fas fa-quote-left"></i> --}}
             {{ @$user->profile->introduce }}
         </p>
