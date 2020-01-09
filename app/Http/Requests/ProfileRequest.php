@@ -24,12 +24,12 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'display_name'         => 'required',
-            'introduce'            => 'required',
-            'province_id'          => 'required',
-            'sex_id'               => 'required',
-            'birth_date'           => 'required',
-            'g-recaptcha-response' => 'required|captcha',
+            'display_name' => 'required',
+            'introduce'    => 'required',
+            'province_id'  => 'required',
+            'sex_id'       => 'required',
+            'birth_date'   => 'required',
+            // 'g-recaptcha-response' => 'required|captcha',
         ];
     }
 
