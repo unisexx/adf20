@@ -109,7 +109,7 @@
 
                     <div class="md-form md-outline">
                         <textarea name="introduce" type="text" id="f3" class="md-textarea form-control"
-                            rows="5">{{ @Auth::user()->profile->introduce }}</textarea>
+                            rows="5" length="280">{{ @Auth::user()->profile->introduce }}</textarea>
                         <label for="f3" class="">แนะนำตัว</label>
                     </div>
 
@@ -296,6 +296,10 @@
         format: 'd mmmm, yyyy',
         formatSubmit: 'yyyy-mm-dd',
     })
+
+    $(document).ready(function() {
+        $('textarea[name=introduce]').characterCounter();
+    });
 
 </script>
 @endpush

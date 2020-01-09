@@ -1,5 +1,5 @@
 <!-- Section: Block Content -->
-<div class="card testimonial-card h-100">
+<div class="card testimonial-card">
 
     <!--Bacground color-->
     <div class="card-up green accent-3">

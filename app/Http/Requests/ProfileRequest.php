@@ -25,7 +25,7 @@ class ProfileRequest extends FormRequest
     {
         return [
             'display_name' => 'required',
-            'introduce'    => 'required',
+            'introduce'    => 'required|max:280',
             'province_id'  => 'required',
             'sex_id'       => 'required',
             'birth_date'   => 'required',
@@ -37,6 +37,7 @@ class ProfileRequest extends FormRequest
         return [
             'display_name.required' => 'ชื่อ ห้ามเป็นค่าว่าง',
             'introduce.required'    => 'แนะนำตัว ห้ามเป็นค่าว่าง',
+            'introduce.max'         => 'แนะนำตัว ห้ามเกิน 280 ตัวอักษร',
             'province_id.required'  => 'จังหวัด ห้ามเป็นค่าว่าง',
             'sex_id.required'       => 'เพศ ห้ามเป็นค่าว่าง',
             'birth_date.required'   => 'วันเกิด ห้ามเป็นค่าว่าง',
