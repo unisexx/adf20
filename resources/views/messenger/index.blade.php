@@ -11,9 +11,21 @@
     </div>
     <div class="col-md-9">
         @include('messenger.partials.flash')
-        <ul class="list-unstyled friend-list">
+        {{-- <ul class="list-unstyled friend-list">
             @each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')
-        </ul>
+        </ul> --}}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>วันที่</th>
+                    <th>หัวข้อ</th>
+                    <th>ส่งไป</th>
+                </tr>
+            </thead>
+            <tbody>
+                @each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')
+            </tbody>
+        </table>
     </div>
 </div>
 

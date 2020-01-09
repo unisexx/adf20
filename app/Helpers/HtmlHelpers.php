@@ -42,3 +42,14 @@ if (!function_exists('icon_bar')) {
         return $txt;
     }
 }
+
+if (!function_exists('get_messenger_participant')) {
+    function get_messenger_participant($thread_id)
+    {
+        $rs = DB::table('messenger_participants')->where('thread_id', $thread_id)->where('user_id', '!=', @Auth::user()->id)->first();
+        $user_id = $rs->user_id;
+
+        $participant = \App\Models\Profile::select('display_name', 'imgur')->where('user_id', $user_id)->first();
+        return $participant;
+    }
+}
