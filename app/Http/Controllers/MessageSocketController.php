@@ -18,6 +18,7 @@ class MessageSocketController extends Controller
             'text'    => $request->text,
             'user_id' => $request->user_id,
         ]);
+
         return $request;
     }
 }
