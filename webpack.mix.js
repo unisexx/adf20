@@ -11,27 +11,27 @@ const mix = require('laravel-mix');
  |
  */
 
-// mix.js('resources/js/app.js', 'public/js')
-//    .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css');
 
 
 // mix.js([
 //    'resources/js/font_awesome.js'
 // ], 'public/js').version();
 
-mix.js([
-   'resources/js/app.js',
-   'resources/js/font_awesome.js'
-], 'public/js/all.js').version()
-.sass(
-   'resources/sass/app.scss', 'public/css'
-);
+// mix.js([
+//    'resources/js/app.js',
+//    'resources/js/font_awesome.js'
+// ], 'public/js/all.js').version()
+// .sass(
+//    'resources/sass/app.scss', 'public/css'
+// );
 
-mix.styles([
-      'resources/css/template.css'
-   ], 'public/css/template.css');
+// mix.styles([
+//       'resources/css/template.css'
+//    ], 'public/css/template.css');
 
-mix.styles([
-      'public/css/template.css',
-      'public/css/app.css'
-   ], 'public/css/all.css');
+// mix.styles([
+//       'public/css/template.css',
+//       'public/css/app.css'
+//    ], 'public/css/all.css');

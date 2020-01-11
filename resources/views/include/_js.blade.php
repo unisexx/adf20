@@ -1,3 +1,5 @@
+<!-- Socket IO -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 <!-- jQuery -->
 <script type="text/javascript" src="{{ asset('MDB-Pro-4.9.0/MDB-Pro/js/jquery.min.js') }}"></script>
 <!-- Bootstrap tooltips -->
@@ -29,5 +31,46 @@ function confirmDelete() {
             form.submit();
         }
     });
+}
+</script>
+
+<!-- ChatRoom -->
+<script>
+$(document).ready(function(){
+
+    scollBottom('.card-body');
+
+    var socket = io('http://localhost:3000');
+    // socket.emit('chat chatMessage','ส่งข้อความจากฝั่ง client');
+
+    $('form#chatForm').submit(()=>{
+        $.post("{{ url('/api/create/message') }}", { 
+
+            text: $('#msg-input').val(),
+            user_id: $('#msg-user-id').val(),
+
+        }, function(data, status, jqXHR) {// success callback
+
+            // ส่งข้อมูลไป node server
+            socket.emit('chatMessage', {
+                msg: $('#msg-input').val(),
+                imgur: $('#msg-user-imgur').val()
+            });
+
+            $('#msg-input').val('');
+            scollBottom('.card-body');
+        });
+        return false;
+    });
+
+    // รับข้อมูลจาก node server
+    socket.on('chatMessage', (data)=>{
+        $('.chat-body').append( $('<li>').text(data.msg + data.imgur) );
+    });
+
+});
+
+function scollBottom(element){
+    $(element).animate({ scrollTop: $(element)[0].scrollHeight}, 500);
 }
 </script>

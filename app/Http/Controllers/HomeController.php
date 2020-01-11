@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MessageSocket;
 use App\User;
 use Auth;
 
@@ -24,8 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $msgs = MessageSocket::orderBy('id', 'desc')->take(20)->get()->reverse();
+
         $users = User::withoutBanned()->orderBy('updated_at', 'desc')->with('socialInfo')->paginate(12);
-        return view('home', compact('users'));
+        return view('home', compact('users', 'msgs'));
     }
 
     public function follow($id)
