@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/fetch/message', 'MessageSocketController@fetch')->name('api.fatch.message');
-Route::post('/create/message', 'MessageSocketController@create')->name('api.create.message');
+Route::post('/create/message', 'ChatController@create')->name('api.chat.create.message');

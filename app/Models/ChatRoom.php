@@ -4,16 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MessageSocket extends Model
+class ChatRoom extends Model
 {
-    protected $table = 'message_sockets';
+    protected $table = 'chat_rooms';
 
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'text',
-        'user_id',
         'from_user_id',
         'to_user_id',
     ];
+
+    public function chatMsg()
+    {
+        return $this->hasMany('App\Models\ChatMsg')->orderBy('id', 'desc');
+    }
 }

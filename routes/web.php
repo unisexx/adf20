@@ -23,44 +23,46 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
 
-// follow System
-Route::get('/follow/{id}', 'HomeController@follow');
-Route::get('/unfollow/{id}', 'HomeController@unfollow');
+    Route::get('/home', 'HomeController@index')->name('home');
 
-// Like System
-Route::get('/like/{id}', 'HomeController@like');
-Route::get('/unlike/{id}', 'HomeController@unlike');
+    // Chat Room
+    Route::get('/chatroom/{id}', 'ChatController@chatroom');
+    Route::get('/loadmsg', function () {
+        return view('include.__msg-chatmsg-box');
+    });
 
-// Route::get('/', [
-//     'uses'       => 'UsersController@profile',
-//     'middleware' => 'forbid-banned-user',
-// ]);
+    // follow System
+    Route::get('/follow/{id}', 'HomeController@follow');
+    Route::get('/unfollow/{id}', 'HomeController@unfollow');
 
-Route::get('/my/profile', 'MyController@profile')->middleware('logs-out-banned-user');
-Route::post('/my/profile_save', 'MyController@profile_save');
+    // Like System
+    Route::get('/like/{id}', 'HomeController@like');
+    Route::get('/unlike/{id}', 'HomeController@unlike');
 
-Route::get('/my/following', 'MyController@following');
-Route::get('/my/follower', 'MyController@follower');
+    Route::get('/my/profile', 'MyController@profile')->middleware('logs-out-banned-user');
+    Route::post('/my/profile_save', 'MyController@profile_save');
+
+    Route::get('/my/following', 'MyController@following');
+    Route::get('/my/follower', 'MyController@follower');
+
+});
+
+Route::middleware(['auth', 'is_admin'])->group(function () {
+
+    Route::get('/zadmin/user/ban/{id}', 'Admin\\UserController@ban');
+    Route::get('/zadmin/user/unban/{id}', 'Admin\\UserController@unban');
+    Route::resource('/zadmin/user', 'Admin\\UserController');
+    Route::resource('/zadmin/banner', 'Admin\\BannerController');
+
+    // ajax
+    Route::any('ajaxSwitchStatus', 'AjaxController@ajaxSwitchStatus');
+
+});
 
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
-
-// Zadmin
-Route::get('/zadmin/user/ban/{id}', 'Admin\\UserController@ban')->middleware('is_admin');
-Route::get('/zadmin/user/unban/{id}', 'Admin\\UserController@unban')->middleware('is_admin');
-Route::resource('/zadmin/user', 'Admin\\UserController')->middleware('is_admin');
-Route::resource('/zadmin/banner', 'Admin\\BannerController')->middleware('is_admin');
-
-// Route::namespace ('Admin')->prefix('zadmin')->middleware('is_admin')->group(function () {
-//     // namespace ('Admin') = Controller ที่อยู่ใน Folder Admin
-//     // prefix('zadmin') = url ที่เริ่มด้วย zadmin/...
-//     Route::resource('user', 'UserController');
-// });
-
-// ajax
-Route::any('ajaxSwitchStatus', 'AjaxController@ajaxSwitchStatus');
 
 // Private Message
 Route::group(['prefix' => 'messages'], function () {
