@@ -51,6 +51,11 @@ $(document).ready(function(){
     });
 
     $('form#chatForm').submit(()=>{
+
+        if($('#msg-input').val() === ''){
+            return false;
+        }
+
         $.post("{{ route('api.chat.create.message') }}", { 
 
             text: $('#msg-input').val(),

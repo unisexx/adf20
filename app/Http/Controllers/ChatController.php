@@ -19,7 +19,7 @@ class ChatController extends Controller
     public function create(Request $request)
     {
         $rs = ChatMsg::create([
-            'text'         => $request->text,
+            'text'         => $request->text ?? '...',
             'user_id'      => $request->user_id,
             'chat_room_id' => $request->chat_room_id,
         ]);
