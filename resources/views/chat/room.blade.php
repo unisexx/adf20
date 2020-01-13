@@ -7,8 +7,17 @@
         <div class="col-12">
 
             <div class="card">
-                <div class="card-header white d-flex justify-content-between">
-                    <p class="h5-responsive font-weight-bold mb-0">Direct Chat</p>
+                <div class="card-header white d-flex justify-content-between p-2" id="toggle" style="cursor: pointer;">
+                    <div class="heading d-flex justify-content-start">
+                        <div class="profile-photo">
+                            <img src="{{ @get_recipient_profile($chatroom)->imgur ?? url('image/user-placeholder.png') }}" alt="avatar" class="avatar rounded-circle mr-2 ml-0" width="50">
+                            <span class="state"></span>
+                        </div>
+                        <div class="data">
+                            <p class="name mb-0"><strong>{{ @get_recipient_profile($chatroom)->display_name }}</strong></p>
+                            <p class="activity text-muted mb-0">Active now</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body chat-body chat-room-id-{{ $chatroom->id }}">
                     @foreach($chatmsgs as $msg)
@@ -19,7 +28,7 @@
                     <form id="chatForm" action="" autocomplete="off">
                         <div class="form-group mb-0">
                             <textarea id="msg-input" class="form-control rounded-0" rows="1"
-                                placeholder="Type message..."></textarea>
+                                placeholder="พิมพ์ข้อความ ..."></textarea>
                             <div class="text-right pt-2">
                                 <button class="btn btn-primary btn-sm mb-0 mr-0">ส่งข้อความ</button>
                             </div>
@@ -109,19 +118,32 @@
 
 @push('css')
 <style>
-    .chat-body {
-        position: relative;
-        height: 300px;
-        overflow: auto;
-    }
+.chat-body {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+}
 
-    .card-img-35 {
-        width: 35px;
-    }
+.card-img-35 {
+    width: 35px;
+}
 
-    .mt-3p {
-        margin-top: 3px;
-    }
+.mt-3p {
+    margin-top: 3px;
+}
 
+.profile-photo .state {
+    position: relative;
+    display: block;
+    background-color: #007E33;
+    height: .65rem;
+    width: .65rem;
+    z-index: 2;
+    margin-left: 2.35rem;
+    left: auto;
+    top: -.5rem;
+    border-radius: 50%;
+    border: .1rem solid #fff;
+}
 </style>
 @endpush

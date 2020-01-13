@@ -15,17 +15,9 @@
         @foreach($rs as $chatroom)
         <tr>
             <td>
-                @if($chatroom->from_user_id != Auth::user()->id)
                 <div class="chip chip-lg m-0">
-                    <img src="{{ $chatroom->fromProfile->imgur ?? url('image/user-placeholder.png') }}"> {{ @$chatroom->fromProfile->display_name }}
+                    <img src="{{ @get_recipient_profile($chatroom)->imgur ?? url('image/user-placeholder.png') }}"> {{ @get_recipient_profile($chatroom)->display_name }}
                 </div>
-                @endif
-
-                @if($chatroom->to_user_id != Auth::user()->id)
-                <div class="chip chip-lg m-0">
-                    <img src="{{ $chatroom->toProfile->imgur ?? url('image/user-placeholder.png') }}"> {{ @$chatroom->toProfile->display_name }}
-                </div>
-                @endif
             </td>
             <td>
                 <div class="chip chip-lg m-0">
