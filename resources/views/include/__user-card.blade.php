@@ -62,7 +62,7 @@
             </div>
             <div class="col-4 text-center">
                 <small>
-                    <a href="{{ url('messages/to/'.@$user->id) }}">ส่งข้อความ</a>
+                    <a href="{{ url('chatwith/'.@$user->id) }}">ส่งข้อความ</a>
                 </small>
             </div>
         </div>

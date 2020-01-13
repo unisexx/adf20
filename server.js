@@ -7,12 +7,12 @@ app.get('/', (req, res)=>{
 });
 
 io.on('connection', (socket)=>{
-    // console.log('client connected');
+    console.log('client connected');
 
     // Listen
     socket.on('chatMessage', (data)=>{
-        console.log('message : ' + data.msg);
-        console.log('imgur : '+ data.imgur);
+        // console.log('message : ' + data.msg);
+        // console.log('imgur : '+ data.imgur);
 
         // Reply ข้อความกลับไปที่ client
         io.emit('chatMessage', data);

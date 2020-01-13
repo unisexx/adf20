@@ -32,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/loadmsg', function () {
         return view('include.__msg-chatmsg-box');
     });
+    Route::get('/chatwith/{id}', 'ChatController@chatwith');
+    Route::get('/chatlist', 'ChatController@chatlist');
 
     // follow System
     Route::get('/follow/{id}', 'HomeController@follow');

@@ -14,7 +14,7 @@
             <th class="th-sm">Url</th>
             <th class="th-sm">SDate</th>
             <th class="th-sm">EDate</th>
-            <th class="th-sm"></th>
+            <th class="th-sm no-sort"></th>
         </tr>
     </thead>
     <tbody>
@@ -54,28 +54,3 @@
 </table>
 
 @endsection
-
-@push('css')
-<!-- DataTables CSS -->
-<link href="{{ asset('MDB-Pro-4.9.0/MDB-Pro/css/addons/datatables.min.css') }}" rel="stylesheet">
-@endpush
-
-@push('js')
-<!-- DataTables JS -->
-<script type="text/javascript" src="{{ asset('MDB-Pro-4.9.0/MDB-Pro/js/addons/datatables.min.js') }}"></script>
-<script>
-$(document).ready(function () {
-    $('#dtBasicExample').DataTable();
-
-    // ajax เปิด-ปิด สถานะ
-    urlPath = window.location.protocol + "//" + window.location.host + "/";
-    $(document).on('change', ".switch_status", function () {
-        $.ajax({
-            url: urlPath+"ajaxSwitchStatus",
-            data:{ table : $(this).data('tb'), id : $(this).data('id'), status : $(this).prop('checked') },
-            dataType: "json",
-        });
-    });
-});
-</script>
-@endpush
