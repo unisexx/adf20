@@ -20,7 +20,7 @@ class MyController extends Controller
     public function profile()
     {
         $provinces = Province::select('id', 'title')->orderBy('title', 'asc')->get();
-        $sexes = Sex::select('id', 'name')->orderBy('id', 'asc')->get();
+        $sexes = Sex::select('id', 'name')->orderBy('sort', 'asc')->get();
         return view('my.profile', compact('provinces', 'sexes'));
     }
 
