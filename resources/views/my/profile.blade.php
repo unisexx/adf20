@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="my-5">
-
+{{ dump(@Auth::user()->isOnline()) }}
     <!-- Section: Block Content -->
     <section>
 

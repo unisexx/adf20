@@ -11,7 +11,6 @@
                     <div class="heading d-flex justify-content-start">
                         <div class="profile-photo">
                             <img src="{{ @get_recipient_profile($chatroom)->imgur ?? url('image/user-placeholder.png') }}" alt="avatar" class="avatar rounded-circle mr-2 ml-0" width="50">
-                            <span class="state"></span>
                         </div>
                         <div class="data">
                             <p class="name mb-0"><strong>{{ @get_recipient_profile($chatroom)->display_name }}</strong></p>
@@ -130,20 +129,6 @@
 
 .mt-3p {
     margin-top: 3px;
-}
-
-.profile-photo .state {
-    position: relative;
-    display: block;
-    background-color: #007E33;
-    height: .65rem;
-    width: .65rem;
-    z-index: 2;
-    margin-left: 2.35rem;
-    left: auto;
-    top: -.5rem;
-    border-radius: 50%;
-    border: .1rem solid #fff;
 }
 </style>
 @endpush
