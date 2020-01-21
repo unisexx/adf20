@@ -45,6 +45,13 @@
                         </div>
                     </div>
 
+                    <div class="custom-control custom-switch">
+                        <input name="imgur_cover_status" type="checkbox" class="custom-control-input" id="f4" value="1"
+                            {{ @Auth::user()->profile->imgur_cover_status == 1 ? 'checked' : ''}}>
+                        <label class="custom-control-label" for="f4">ปิด-เปิด การใช้งานภาพปก
+                            (ถ้าปิดการใช้งานจะแสดงสีตามเพศแทนการแสดงภาพปก)<label>
+                    </div>
+
                     <div class="text-center py-4 mt-3">
                         <button class="btn btn-primary btn-lg" type="submit">บันทึกข้อมูล</button>
                     </div>

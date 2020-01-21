@@ -2,7 +2,7 @@
 <div class="card testimonial-card">
 
     <!--Bacground color-->
-    <div class="card-up img-clover {{ sex_id_2_color_class(@$user->profile->sex_id) }}" @if(@$user->profile->imgur_cover) style="background-image: url({{ @Imgur::size($user->profile->imgur_cover, 'l') }});" @endif>
+    <div class="card-up img-clover {{ sex_id_2_color_class(@$user->profile->sex_id) }}" @if(@$user->profile->imgur_cover && @$user->profile->imgur_cover_status) style="background-image: url({{ @Imgur::size($user->profile->imgur_cover, 'l') }});" @endif>
         <div class="img-gradient-overlay h-100 p-3 white-text">
             <p class="font-weight-normal mb-0">{{ @$user->profile->age }}, {{ @$user->profile->sex->name }}</p>
             <p class="small mb-0">{{ @$user->profile->province->title }}</p>

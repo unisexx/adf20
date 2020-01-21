@@ -22,6 +22,7 @@ class Profile extends Model
         'birth_date',
         'birth_date_submit',
         'imgur_cover',
+        'imgur_cover_status',
     ];
 
     public function sex()
