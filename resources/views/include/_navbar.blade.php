@@ -18,21 +18,26 @@
 
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{{ url('search') }}">ค้นหา</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{{ url('chatroom/1') }}">แชทรูม</a>
+                </li>
             </ul>
 
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 @guest
-
                     <a href="{{url('/login')}}" class="text-dark">เข้าสู่ระบบ</a>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="{{ url('messages') }}">
-                        <i class="far fa-envelope"></i>
-                        @php $count = Auth::user()->newThreadsCount(); @endphp
+                    <a class="nav-link waves-effect" href="{{ url('chatlist') }}">
+                        <i class="far fa-comments"></i>
+                        {{-- @php $count = Auth::user()->newThreadsCount(); @endphp
                         @if($count > 0)
                             <span class='badge badge-pill badge-danger unread-count'>{{ $count }}</span>
-                        @endif
+                        @endif --}}
                     </a>
                 </li>
                 <li class="nav-item dropdown">

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
@@ -21,5 +22,21 @@ class Profile extends Model
         'birth_date',
         'birth_date_submit',
         'imgur_cover',
+        'imgur_cover_status',
     ];
+
+    public function sex()
+    {
+        return $this->hasOne('App\Models\Sex', 'id', 'sex_id');
+    }
+
+    public function province()
+    {
+        return $this->hasOne('App\Models\Province', 'id', 'province_id');
+    }
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['birth_date_submit'])->age;
+    }
 }

@@ -7,7 +7,7 @@
         <tr>
             <th class="th-sm">UserID</th>
             <th class="th-sm">DisplayName</th>
-            <th class="th-sm"></th>
+            <th class="th-sm no-sort"></th>
         </tr>
     </thead>
     <tbody>
@@ -39,19 +39,3 @@
 </table>
 
 @endsection
-
-@push('css')
-<!-- DataTables CSS -->
-<link href="{{ asset('MDB-Pro-4.9.0/MDB-Pro/css/addons/datatables.min.css') }}" rel="stylesheet">
-@endpush
-
-@push('js')
-<!-- DataTables JS -->
-<script type="text/javascript" src="{{ asset('MDB-Pro-4.9.0/MDB-Pro/js/addons/datatables.min.js') }}"></script>
-<script>
-    $(document).ready(function () {
-        $('#dtBasicExample').DataTable();
-    });
-
-</script>
-@endpush

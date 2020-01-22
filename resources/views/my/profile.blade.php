@@ -3,7 +3,6 @@
 @section('content')
 
 <div class="my-5">
-
     <!-- Section: Block Content -->
     <section>
 
@@ -44,6 +43,13 @@
                                 <input class="file-path validate" type="text" placeholder="Upload your file">
                             </div>
                         </div>
+                    </div>
+
+                    <div class="custom-control custom-switch">
+                        <input name="imgur_cover_status" type="checkbox" class="custom-control-input" id="f4" value="1"
+                            {{ @Auth::user()->profile->imgur_cover_status == 1 ? 'checked' : ''}}>
+                        <label class="custom-control-label" for="f4">ปิด-เปิด การใช้งานภาพปก
+                            (ถ้าปิดการใช้งานจะแสดงสีตามเพศแทนการแสดงภาพปก)<label>
                     </div>
 
                     <div class="text-center py-4 mt-3">
@@ -109,7 +115,7 @@
 
                     <div class="md-form md-outline">
                         <textarea name="introduce" type="text" id="f3" class="md-textarea form-control"
-                            rows="5">{{ @Auth::user()->profile->introduce }}</textarea>
+                            rows="5" length="280">{{ @Auth::user()->profile->introduce }}</textarea>
                         <label for="f3" class="">แนะนำตัว</label>
                     </div>
 
@@ -260,8 +266,6 @@
                 </div>
             </div>
 
-            {!! app('captcha')->render(); !!}
-
         </form>
     </section>
     <!-- Section: Block Content -->
@@ -298,6 +302,10 @@
         format: 'd mmmm, yyyy',
         formatSubmit: 'yyyy-mm-dd',
     })
+
+    $(document).ready(function() {
+        $('textarea[name=introduce]').characterCounter();
+    });
 
 </script>
 @endpush

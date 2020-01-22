@@ -20,7 +20,7 @@ class MyController extends Controller
     public function profile()
     {
         $provinces = Province::select('id', 'title')->orderBy('title', 'asc')->get();
-        $sexes = Sex::select('id', 'name')->orderBy('id', 'asc')->get();
+        $sexes = Sex::select('id', 'name')->orderBy('sort', 'asc')->get();
         return view('my.profile', compact('provinces', 'sexes'));
     }
 
@@ -46,15 +46,16 @@ class MyController extends Controller
                 'user_id' => Auth::user()->id,
             ],
             [
-                'display_name'      => $request->display_name,
-                'introduce'         => $request->introduce,
-                'publish'           => $request->publish ?? '0',
-                'imgur'             => $imgur ?? $request->old_imgur,
-                'province_id'       => $request->province_id,
-                'sex_id'            => $request->sex_id,
-                'birth_date'        => $request->birth_date,
-                'birth_date_submit' => $request->birth_date_submit,
-                'imgur_cover'       => $imgur_cover ?? $request->old_imgur_cover,
+                'display_name'       => $request->display_name,
+                'introduce'          => $request->introduce,
+                'publish'            => $request->publish ?? '0',
+                'imgur'              => $imgur ?? $request->old_imgur,
+                'province_id'        => $request->province_id,
+                'sex_id'             => $request->sex_id,
+                'birth_date'         => $request->birth_date,
+                'birth_date_submit'  => $request->birth_date_submit,
+                'imgur_cover'        => $imgur_cover ?? $request->old_imgur_cover,
+                'imgur_cover_status' => $request->imgur_cover_status ?? '0',
             ]
         );
 

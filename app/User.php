@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Cmgmyr\Messenger\Traits\Messagable;
 use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,7 +18,6 @@ class User extends Authenticatable implements BannableContract, Following, Likin
     use Bannable;
     use Follow;
     use Like;
-    use Messagable;
 
     /**
      * The attributes that are mass assignable.

@@ -42,3 +42,90 @@ if (!function_exists('icon_bar')) {
         return $txt;
     }
 }
+
+if (!function_exists('get_recipient_profile')) {
+    function get_recipient_profile($chatroom)
+    {
+        if ($chatroom->from_user_id != Auth::user()->id) {
+            $rs = $chatroom->fromProfile;
+        } elseif ($chatroom->to_user_id != Auth::user()->id) {
+            $rs = $chatroom->toProfile;
+        }
+        return $rs;
+    }
+}
+
+if (!function_exists('sex_id_2_color_class')) {
+    function sex_id_2_color_class($sex_id)
+    {
+        switch ($sex_id) {
+            case "1": //ชาย
+                $class = "blue";
+                break;
+            case "2": //หญิง
+                $class = "pink";
+                break;
+            case "3": //ทอม
+                $class = "orange";
+                break;
+            case "4": //ดี้
+                $class = "pink darken-1";
+                break;
+            case "5": //ทอมเกย์
+                $class = "orange darken-1";
+                break;
+            case "6": //ทอมเกย์คิง
+                $class = "orange darken-2";
+                break;
+            case "7": //ทอมเกย์ควีน
+                $class = "orange lighten-1";
+                break;
+            case "8": //ทอมเกย์ทูเวย์
+                $class = "orange darken-4";
+                break;
+            case "9": //เกย์คิง
+                $class = "purple darken-1";
+                break;
+            case "10": //เกย์ควีน
+                $class = "purple lighten-1";
+                break;
+            case "11": //โบ๊ท
+                $class = "purple";
+                break;
+            case "12": //ไบท์
+                $class = "grey darken-2";
+                break;
+            case "13": //เลสเบี้ยน
+                $class = "pink accent-2";
+                break;
+            case "14": //กระเทย
+                $class = "pink accent-3";
+                break;
+            case "15": //อดัม
+                $class = "blue darken-2";
+                break;
+            case "16": //แองจี้
+                $class = "pink accent-4";
+                break;
+            case "17": //เชอร์รี่
+                $class = "red accent-2";
+                break;
+            case "18": //สามย่าน
+                $class = "red accent-4";
+                break;
+            case "19": //ผู้หญิงข้ามเพศ
+                $class = "pink lighten-1";
+                break;
+            case "20": //ผู้ชายข้ามเพศ
+                $class = "blue lighten-1";
+                break;
+            case "21": //ผู้ชายข้ามเพศ
+                $class = "purple";
+                break;
+            default:
+                $class = "grey darken-4";
+        }
+
+        return $class;
+    }
+}

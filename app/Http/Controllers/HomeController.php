@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::withoutBanned()->orderBy('updated_at', 'desc')->with('socialInfo')->paginate(12);
+        $users = User::withoutBanned()->orderBy('updated_at', 'desc')->with('socialInfo')->paginate(30);
         return view('home', compact('users'));
     }
 

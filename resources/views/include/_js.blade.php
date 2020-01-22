@@ -1,3 +1,5 @@
+<!-- Socket IO -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 <!-- jQuery -->
 <script type="text/javascript" src="{{ asset('MDB-Pro-4.9.0/MDB-Pro/js/jquery.min.js') }}"></script>
 <!-- Bootstrap tooltips -->
@@ -9,7 +11,20 @@
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!-- Lazy Image Load -->
-<script type="text/javascript" src="{{ asset('js/lazysizes.min.js') }}" async=""></script>
+{{-- <script type="text/javascript" src="{{ asset('js/lazysizes.min.js') }}" async=""></script> --}}
+<!-- DataTables JS -->
+<script type="text/javascript" src="{{ asset('MDB-Pro-4.9.0/MDB-Pro/js/addons/datatables.min.js') }}"></script>
+<script>
+$(document).ready(function () {
+    $("#dtBasicExample").DataTable({
+        "order": [],
+        "columnDefs": [{
+            "orderable": false,
+            "targets": 'no-sort'
+        }],
+    });
+});
+</script>
 <!-- Your custom scripts (optional) -->
 <script type="text/javascript">
 function confirmDelete() {
