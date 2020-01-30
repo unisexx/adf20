@@ -86,4 +86,9 @@ class User extends Authenticatable implements BannableContract, Following, Likin
     {
         return $this->hasOne('App\Models\SocialInfo')->where('provider', 'tiktok');
     }
+
+    public function tinder()
+    {
+        return $this->hasOne('App\Models\SocialInfo')->where('provider', 'tinder');
+    }
 }

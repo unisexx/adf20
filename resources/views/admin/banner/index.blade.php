@@ -54,3 +54,16 @@
 </table>
 
 @endsection
+
+@push('js')
+<script>
+// ajax ปิด-เปิดสถานะ
+$(document).on('change', ".switch_status", function () {
+    $.ajax({
+        url: "{{ url('ajaxSwitchStatus') }}",
+        data:{ table : $(this).data('tb'), id : $(this).data('id'), status : $(this).prop('checked') },
+        dataType: "json",
+    });
+});
+</script>
+@endpush

@@ -12,6 +12,10 @@
         @endforeach
 
     </div>
+
+    <div class="pagination-wrapper mt-3">
+        {!! $users->appends(@$_GET)->render() !!}
+    </div>
 </section>
 
 @endsection

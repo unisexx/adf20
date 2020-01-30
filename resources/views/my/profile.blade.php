@@ -218,7 +218,7 @@
                         <input name="social_info[provider][]" type="hidden" value="youtube">
                     </div>
 
-                    <div class="input-group">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text" style="height: 38px;">
                                 <input name="social_info[status][tiktok]" class="form-check-input" type="checkbox"
@@ -230,6 +230,19 @@
                             value="{{ @Auth::user()->tiktok->link }}">
                         <input name="social_info[provider][]" type="hidden" value="tiktok">
                     </div>
+
+                    {{-- <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="height: 38px;">
+                                <input name="social_info[status][tinder]" class="form-check-input" type="checkbox"
+                                    value="1" id="tinder" {{ @Auth::user()->tinder->status ? 'checked' : '' }}>
+                                <label class="form-check-label" for="tinder">
+                            </div>
+                        </div>
+                        <input name="social_info[link][]" type="text" class="form-control" placeholder="TINDER"
+                            value="{{ @Auth::user()->tinder->link }}">
+                        <input name="social_info[provider][]" type="hidden" value="tinder">
+                    </div> --}}
 
 
                     <div class="text-center py-4 mt-3">

@@ -12,6 +12,7 @@
 
         <main class="py-4">
             <div class="container">
+                @include('include/__banner')
                 @yield('content')
             </div>
         </main>
