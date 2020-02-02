@@ -32,8 +32,7 @@ class ChatController extends Controller
             'user_id'      => $request->user_id,
             'chat_room_id' => $request->chat_room_id,
         ]);
-
-        return $rs;
+        // return $rs;
     }
 
     public function chatwith($id)

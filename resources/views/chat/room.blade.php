@@ -66,26 +66,45 @@
                 return false;
             }
 
-            $.post("{{ route('api.chat.create.message') }}", {
+            // $.post("{{ route('api.chat.create.message') }}", {
 
+            //     text: $('#msg-input').val(),
+            //     chat_room_id: "{{ $chatroom->id }}",
+            //     user_id: "{{ @Auth::user()->id }}",
+
+            // }, function (data, status, jqXHR) { // success callback
+
+            //     // ส่งข้อมูลไป node server
+            //     socket.emit('chatMessage', {
+            //         chat_room_id: "{{ $chatroom->id }}",
+            //         user_id: "{{ @Auth::user()->id }}",
+            //         msg: $('#msg-input').val(),
+            //         imgur: "{{ @Auth::user()->profile->imgur }}",
+            //         display_name: "{{ @Auth::user()->profile->display_name }}",
+            //         msg_create_at: getDateTimeNow(),
+            //     });
+
+            //     $('#msg-input').val('');
+            // });
+
+            // ส่งข้อมูลไป node server
+            socket.emit('chatMessage', {
+                chat_room_id: "{{ $chatroom->id }}",
+                user_id: "{{ @Auth::user()->id }}",
+                msg: $('#msg-input').val(),
+                imgur: "{{ @Auth::user()->profile->imgur }}",
+                display_name: "{{ @Auth::user()->profile->display_name }}",
+                msg_create_at: getDateTimeNow(),
+            });
+
+            // เซฟข้อความลง db
+            $.post("{{ route('api.chat.create.message') }}", {
                 text: $('#msg-input').val(),
                 chat_room_id: "{{ $chatroom->id }}",
                 user_id: "{{ @Auth::user()->id }}",
-
-            }, function (data, status, jqXHR) { // success callback
-
-                // ส่งข้อมูลไป node server
-                socket.emit('chatMessage', {
-                    chat_room_id: "{{ $chatroom->id }}",
-                    user_id: "{{ @Auth::user()->id }}",
-                    msg: $('#msg-input').val(),
-                    imgur: "{{ @Auth::user()->profile->imgur }}",
-                    display_name: "{{ @Auth::user()->profile->display_name }}",
-                    msg_create_at: data.created_at,
-                });
-
-                $('#msg-input').val('');
             });
+
+            $('#msg-input').val('');
             return false;
         });
 
@@ -110,6 +129,14 @@
         $(element).animate({
             scrollTop: $(element)[0].scrollHeight
         }, 1000);
+    }
+
+    function getDateTimeNow(){
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
+        return dateTime;
     }
 
 </script>
