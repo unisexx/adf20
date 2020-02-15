@@ -9,13 +9,17 @@
             <div class="card">
                 <div class="card-header white d-flex justify-content-between p-2" id="toggle" style="cursor: pointer;">
                     <div class="heading d-flex justify-content-start">
-                        <div class="profile-photo">
-                            <img src="{{ @get_recipient_profile($chatroom)->imgur ?? url('image/user-placeholder.png') }}" alt="avatar" class="avatar rounded-circle mr-2 ml-0" width="50">
-                        </div>
-                        <div class="data">
-                            <p class="name mb-0"><strong>{{ @get_recipient_profile($chatroom)->display_name }}</strong></p>
-                            <p class="activity text-muted mb-0">Active now</p>
-                        </div>
+                        @if($chatroom->id == 1)
+                            ห้องแชทรวม
+                        @else
+                            <div class="profile-photo">
+                                <img src="{{ @get_recipient_profile($chatroom)->imgur ?? url('image/user-placeholder.png') }}" alt="avatar" class="avatar rounded-circle mr-2 ml-0" width="50">
+                            </div>
+                            <div class="data">
+                                <p class="name mb-0"><strong>{{ @get_recipient_profile($chatroom)->display_name }}</strong></p>
+                                <p class="activity text-muted mb-0">Active now</p>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="card-body chat-body chat-room-id-{{ $chatroom->id }}">

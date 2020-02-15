@@ -14,6 +14,7 @@ class ChatMsg extends Model
         'chat_room_id',
         'text',
         'user_id',
+        'is_read',
     ];
 
     public function profile()

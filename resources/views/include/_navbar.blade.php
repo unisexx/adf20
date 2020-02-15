@@ -1,3 +1,10 @@
+<style>
+.counter {
+    top: -10px !important;
+    margin-left: -19px !important;
+}
+</style>
+
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light white">
 
@@ -38,6 +45,7 @@
                         @if($count > 0)
                             <span class='badge badge-pill badge-danger unread-count'>{{ $count }}</span>
                         @endif --}}
+                        <span class="counter">22</span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
