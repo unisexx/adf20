@@ -1,3 +1,8 @@
+@php
+    // หาข้อความที่ยังไม่ได้อ่าน
+    
+@endphp
+
 <style>
 .counter {
     top: -10px !important;
@@ -45,7 +50,7 @@
                         @if($count > 0)
                             <span class='badge badge-pill badge-danger unread-count'>{{ $count }}</span>
                         @endif --}}
-                        <span class="counter">22</span>
+                        <span class="counter">N</span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">

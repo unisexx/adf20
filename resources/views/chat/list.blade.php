@@ -2,33 +2,25 @@
 
 @section('content')
 
-<table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+<table id="dtBasicExample" class="table table-striped table-bordered nowrap" cellspacing="0" style="width:100%">
     <thead>
         <tr>
             <th class="th-sm">คุยกับ</th>
             <th class="th-sm">ข้อความล่าสุด</th>
-            <th class="th-sm">เวลา</th>
-            <th class="th-sm no-sort"></th>
         </tr>
     </thead>
     <tbody>
         @foreach($rs as $chatroom)
         <tr>
             <td>
-                <div class="chip chip-lg m-0">
-                    <img src="{{ @get_recipient_profile($chatroom)->imgur ?? url('image/user-placeholder.png') }}"> {{ @get_recipient_profile($chatroom)->display_name }}
+                <img class="rounded-circle" src="{{ @get_recipient_profile($chatroom)->imgur ?? url('image/user-placeholder.png') }}" height="35"> {{ @get_recipient_profile($chatroom)->display_name }}
+            </td>
+            <td>
+                <div>
+                    <img class="rounded-circle" src="{{ $chatroom->latestMsg->profile->imgur ?? url('image/user-placeholder.png') }}" height="35"> {{ @$chatroom->latestMsg->profile->display_name }}<br>
+                    <i class="fas fa-quote-left"></i> {{ $chatroom->latestMsg->text }} - <small>{{ DBToDate($chatroom->latestMsg->created_at,true,true).'น.' }}</small>
                 </div>
-            </td>
-            <td>
-                <div class="chip chip-lg m-0">
-                    <img src="{{ $chatroom->latestMsg->profile->imgur ?? url('image/user-placeholder.png') }}"> {{ @$chatroom->latestMsg->profile->display_name }} :: {{ $chatroom->latestMsg->text }}
-                </div>
-            </td>
-            <td>
-                {{ $chatroom->latestMsg->created_at }}
-            </td>
-            <td>
-                <a href="{{ url('chatroom/'.$chatroom->id) }}" class="btn btn-success btn-sm">ส่งข้อความ</a>
+                <a class="text-primary" href="{{ url('chatroom/'.$chatroom->id) }}">ไปที่ห้องแชท</a>
             </td>
         </tr>
         @endforeach
@@ -37,8 +29,6 @@
         <tr>
             <th>คุยกับ</th>
             <th>ข้อความล่าสุด</th>
-            <th>เวลา</th>
-            <th></th>
         </tr>
     </tfoot>
 </table>
