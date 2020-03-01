@@ -1,6 +1,9 @@
 @php
     // หาข้อความที่ยังไม่ได้อ่าน
-    
+    // $unread_count = App\Models\ChatRoom::whereHas('latestMsgFromFriend', function($q){
+    //             $q->whereNull('is_read');
+    //         })->where('from_user_id', Auth::user()->id)->orWhere('to_user_id', Auth::user()->id)->count();
+    // dump($unread_count);
 @endphp
 
 <style>
@@ -50,7 +53,9 @@
                         @if($count > 0)
                             <span class='badge badge-pill badge-danger unread-count'>{{ $count }}</span>
                         @endif --}}
+                        {{-- @if($unread_count == 0) --}}
                         <span class="counter">N</span>
+                        {{-- @endif --}}
                     </a>
                 </li>
                 <li class="nav-item dropdown">
