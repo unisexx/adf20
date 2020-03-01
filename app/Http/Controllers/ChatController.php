@@ -22,6 +22,9 @@ class ChatController extends Controller
 
         $chatmsgs = ChatMsg::where('chat_room_id', $id)->orderBy('id', 'desc')->take(20)->get()->reverse();
 
+        // update is_read
+        ChatMsg::where('chat_room_id', $id)->where('user_id', '!=', Auth::user()->id)->update(array('is_read' => 1));
+
         return view('chat.room', compact('chatroom', 'chatmsgs'));
     }
 
@@ -56,9 +59,9 @@ class ChatController extends Controller
 
     public function chatlist()
     {
-        DB::enableQueryLog();
+        // DB::enableQueryLog();
 
-        $rs = ChatRoom::where('from_user_id', Auth::user()->id)->orWhere('to_user_id', Auth::user()->id)
+        $rs = ChatRoom::has('latestMsg')->where('from_user_id', Auth::user()->id)->orWhere('to_user_id', Auth::user()->id)
             ->with('latestMsg')
             ->orderBy(function ($q) {
                 $q->select('created_at')

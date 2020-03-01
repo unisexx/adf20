@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class ChatRoom extends Model
 {
@@ -23,6 +24,11 @@ class ChatRoom extends Model
     public function latestMsg()
     {
         return $this->hasOne('App\Models\ChatMsg')->latest();
+    }
+
+    public function latestMsgFromFriend()
+    {
+        return $this->hasOne('App\Models\ChatMsg')->where('user_id', '!=', Auth::user()->id)->latest();
     }
 
     public function fromProfile()
